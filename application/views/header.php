@@ -38,36 +38,25 @@
         <div class="row">
           <div class="col">
             <div class="header_content d-flex flex-row align-items-center justify-content-start">
-              <div class="logo"><a href="#">Sublime.</a></div>
+              <div class="logo"><a href="#">Todonorte.</a></div>
               <nav class="main_nav">
                 <ul>
-                  <li class="hassubs active">
-                    <a href="index.html">Home</a>
-                    <ul>
-                      <li><a href="categories.html">Categories</a></li>
-                      <li><a href="product.html">Product</a></li>
-                      <li><a href="cart.html">Cart</a></li>
-                      <li><a href="checkout.html">Check out</a></li>
-                      <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="index.html">Servicios</a></li>
+                  <li><a href="categories.html">Revista</a></li>
+                  <li><a href="#">Semáforo</a></li>
+                  <li><a href="#">Estadísticas</a></li>
                   <li class="hassubs">
-                    <a href="categories.html">Categories</a>
+                    <a href="contact.html">Clientes / A-Z</a>
                     <ul>
                       <li><a href="categories.html">Category</a></li>
-                      <li><a href="categories.html">Category</a></li>
-                      <li><a href="categories.html">Category</a></li>
-                      <li><a href="categories.html">Category</a></li>
-                      <li><a href="categories.html">Category</a></li>
+                      <li><a href="">Category</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Accessories</a></li>
-                  <li><a href="#">Offers</a></li>
-                  <li><a href="contact.html">Contact</a></li>
                 </ul>
               </nav>
               <div class="header_extra ml-auto">
-                <div class="shopping_cart">
+                <!--CARRITO DE-->
+                <!--<div class="shopping_cart">
                   <a href="cart.html">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
@@ -81,7 +70,7 @@
                     </svg>
                     <div>Cart <span>(0)</span></div>
                   </a>
-                </div>
+                </div>-->
                 <div class="search">
                   <div class="search_icon">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
