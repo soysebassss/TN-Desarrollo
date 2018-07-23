@@ -38,32 +38,18 @@
         <div class="row">
           <div class="col">
             <div class="header_content d-flex flex-row align-items-center justify-content-start">
-              <div class="logo"><a href="<?= site_url('#')?>">Sublime.</a></div>
+              <div class="logo"><a href="<?= site_url('#')?>"><img src="<?=base_url('resources/imagenes/Logo.jpg')?>" width="140" height="40"></a></div>
               <nav class="main_nav">
                 <ul>
-                  <li class="hassubs active">
+                  <li>
                     <a href="<?= site_url('index.html')?>">Servicios</a>
-                    <ul>
-                      <li><a href="<?=site_url('categories.html')?>">Categories</a></li>
-                      <li><a href="<?=site_url('product.html')?>">Product</a></li>
-                      <li><a href="<?=site_url('cart.html')?>">Cart</a></li>
-                      <li><a href="<?=site_url('checkout.html')?>">Check out</a></li>
-                      <li><a href="<?=site_url('contact.html')?>">Contact</a></li>
-                    </ul>
                   </li>
-                  <li class="hassubs">
+                  <li >
                     <a href="<?=site_url('categories.html')?>">Revista</a>
-                    <ul>
-                      <li><a href="<?=site_url('categories.html')?>">Category</a></li>
-                      <li><a href="<?=site_url('categories.html')?>">Category</a></li>
-                      <li><a href="<?=site_url('categories.html')?>">Category</a></li>
-                      <li><a href="<?=site_url('categories.html')?>">Category</a></li>
-                      <li><a href="<?=site_url('categories.html')?>">Category</a></li>
-                    </ul>
                   </li>
                   <li><a href="<?=site_url('#')?>">Semaforo</a></li>
                   <li><a href="<?=site_url('#')?>">Estadisticas</a></li>
-                  <li><a href="<?=site_url('contact.html')?>">Clientes / A-Z</a></li>
+                  <li><a href="<?=site_url('Welcome/verClientes')?>">Clientes / A-Z</a></li>
                   <li><a href="<?=site_url('#')?>">Desconectar</a></li>
                 </ul>
               </nav>
@@ -134,23 +120,10 @@
         </div>
         <ul class="page_menu_nav menu_mm">
           <li class="page_menu_item has-children menu_mm">
-            <a href="<?=site_url('index.html')?>">Servicios<i class="fa fa-angle-down"></i></a>
-            <ul class="page_menu_selection menu_mm">
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('categories.html')?>">Categories<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('product.html')?>">Product<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('cart.html')?>">Cart<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('checkout.html')?>">Checkout<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('contact.html')?>">Contact<i class="fa fa-angle-down"></i></a></li>
-            </ul>
+            <a href="<?=site_url('index.html')?>">Servicios</a>
           </li>
           <li class="page_menu_item has-children menu_mm">
-            <a href="categories.html">Revista<i class="fa fa-angle-down"></i></a>
-            <ul class="page_menu_selection menu_mm">
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('categories.html')?>">Category<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('categories.html')?>">Category<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('categories.html')?>">Category<i class="fa fa-angle-down"></i></a></li>
-              <li class="page_menu_item menu_mm"><a href="<?=site_url('categories.html')?>">Category<i class="fa fa-angle-down"></i></a></li>
-            </ul>
+            <a href="categories.html">Revista</a>
           </li>
           <li class="page_menu_item menu_mm"><a href="<?=site_url('index.html')?>">Semaforo<i class="fa fa-angle-down"></i></a></li>
           <li class="page_menu_item menu_mm"><a href="<?=site_url('#')?>">Estadisticas<i class="fa fa-angle-down"></i></a></li>
@@ -171,3 +144,6 @@
       </ul>
     </div>
   </div>
+
+  <div class="products">
+    <div class="container">

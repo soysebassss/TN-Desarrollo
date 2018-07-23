@@ -21,16 +21,16 @@ class Welcome extends CI_Controller {
 	public function index(){
 		// $this->load->view('prueba');      	
 		$this->load->view('header');
-		$this->load->view('navBar');		
+		$this->load->view('index');		
 		$this->load->view('footer');
 		//echo "HOAL DESDE EL CONTROLADOR AMIGO";
 	}
 	public function verClientes(){
-		$this->load->model('Client_model');
-        $clientes ['dataClientes'] = $this->Client_model->findAll();
+		//$this->load->model('Client_model');
+        //$clientes ['dataClientes'] = $this->Client_model->findAll();
 		$this->load->view('header');
-		$this->load->view('navBar');		
-		$this->load->view('contenido',$clientes['dataClientes']);
+		$this->load->view('Clientes');		
+		//$this->load->view('contenido',$clientes['dataClientes']);
 		$this->load->view('footer');
 	}
 	public function login(){
