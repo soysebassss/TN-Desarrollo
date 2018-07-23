@@ -42,13 +42,13 @@
               <nav class="main_nav">
                 <ul>
                   <li>
-                    <a href="<?= site_url('index.html')?>">Servicios</a>
+                    <a href="<?= site_url('Welcome/index')?>">Servicios</a>
                   </li>
                   <li >
-                    <a href="<?=site_url('categories.html')?>">Revista</a>
+                    <a href="<?= site_url('Welcome/verRevista')?>">Revista</a>
                   </li>
-                  <li><a href="<?=site_url('#')?>">Semaforo</a></li>
-                  <li><a href="<?=site_url('#')?>">Estadisticas</a></li>
+                  <li><a href="<?= site_url('Welcome/verSemaforo')?>">Semaforo</a></li>
+                  <li><a href="<?= site_url('Welcome/verEstadisticas')?>">Estadisticas</a></li>
                   <li><a href="<?=site_url('Welcome/verClientes')?>">Clientes / A-Z</a></li>
                   <li><a href="<?=site_url('#')?>">Desconectar</a></li>
                 </ul>
@@ -119,15 +119,15 @@
           </form>
         </div>
         <ul class="page_menu_nav menu_mm">
-          <li class="page_menu_item has-children menu_mm">
-            <a href="<?=site_url('index.html')?>">Servicios</a>
+          <li class="page_menu_item menu_mm">
+            <a href="<?=site_url('Welcome/index')?>">Servicios</a>
           </li>
-          <li class="page_menu_item has-children menu_mm">
-            <a href="categories.html">Revista</a>
+          <li class="page_menu_item menu_mm">
+            <a href="<?=site_url('Welcome/verRevista')?>">Revista</a>
           </li>
-          <li class="page_menu_item menu_mm"><a href="<?=site_url('index.html')?>">Semaforo<i class="fa fa-angle-down"></i></a></li>
-          <li class="page_menu_item menu_mm"><a href="<?=site_url('#')?>">Estadisticas<i class="fa fa-angle-down"></i></a></li>
-          <li class="page_menu_item menu_mm"><a href="<?=site_url('contact.html')?>">Clientes / A-Z<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Welcome/verSemaforo')?>">Semaforo<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Welcome/verEstadisticas')?>">Estadisticas<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Welcome/verClientes')?>">Clientes / A-Z<i class="fa fa-angle-down"></i></a></li>
           <li class="page_menu_item menu_mm"><a href="<?=site_url('#')?>">Desconectar<i class="fa fa-angle-down"></i></a></li>
         </ul>
       </div>

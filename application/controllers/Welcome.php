@@ -29,7 +29,31 @@ class Welcome extends CI_Controller {
 		//$this->load->model('Client_model');
         //$clientes ['dataClientes'] = $this->Client_model->findAll();
 		$this->load->view('header');
-		$this->load->view('Clientes');		
+		$this->load->view('clientes');		
+		//$this->load->view('contenido',$clientes['dataClientes']);
+		$this->load->view('footer');
+	}
+	public function verRevista(){
+		//$this->load->model('Client_model');
+        //$clientes ['dataClientes'] = $this->Client_model->findAll();
+		$this->load->view('header');
+		$this->load->view('revista');		
+		//$this->load->view('contenido',$clientes['dataClientes']);
+		$this->load->view('footer');
+	}
+	public function verSemaforo(){
+		//$this->load->model('Client_model');
+        //$clientes ['dataClientes'] = $this->Client_model->findAll();
+		$this->load->view('header');
+		$this->load->view('semaforo');		
+		//$this->load->view('contenido',$clientes['dataClientes']);
+		$this->load->view('footer');
+	}
+	public function verEstadisticas(){
+		//$this->load->model('Client_model');
+        //$clientes ['dataClientes'] = $this->Client_model->findAll();
+		$this->load->view('header');
+		$this->load->view('estadisticas');		
 		//$this->load->view('contenido',$clientes['dataClientes']);
 		$this->load->view('footer');
 	}
