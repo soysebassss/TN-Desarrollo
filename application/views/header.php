@@ -25,6 +25,41 @@
 <script src="<?=base_url('resources/plugins/easing/easing.js')?>"></script>
 <script src="<?=base_url('resources/plugins/parallax-js-master/parallax.min.js')?>"></script>
 <script src="<?=base_url('resources/js/custom.js')?>"></script>
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    var cont = 1;
+    $("#addJob").click(function(){
+      //alert("Alerta");
+      cont = cont+1;
+      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob">'+cont+') <br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number"  class="form-control" placeholder="Cantidad.." name=""></div></div><br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="text"  class="form-control" placeholder="Valor Unitario.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name=""></div></div><br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Cantidad Metros</label><br><input type="text"  class="form-control" placeholder="Cantidad Metros.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="text"  class="form-control" placeholder="Valor Rollo.." name=""></div></div><br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="text"  class="form-control" placeholder="Valor Tintas.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">CC Utilizados Tinta</label><br><input type="text"  class="form-control" placeholder="CC Utilizados.." name=""></div></div><br></div></div>');
+    });
+    var contador = 4;
+    $("#addSer").click(function(){
+     // alert("Juan");
+      contador = contador+1;
+      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer">'+contador+') <br><div class="row"><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="text"  class="form-control" placeholder=Nuevo-'+contador+'... name=""></div></div><br></div></div>')
+    });
+    $(document).on('click','#DeleteJob',function(){
+      $(this).remove();
+    });
+    $(document).on('click','#DeleteSer',function(){
+      $(this).remove();
+    });
+    $("#clickEnterprise").click(function(){
+      $("#enterprise").hide();
+    });
+    $("#clickEnterprise").dblclick(function(){
+      $("#enterprise").show();
+    });
+    $("#clickService").click(function(){
+      $("#service").hide();
+    });
+    $("#clickService").dblclick(function(){
+      $("#service").show();
+    });
+  });
+</script>
 </head>
 <body>
 
@@ -134,15 +169,6 @@
     </div>
 
     <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-
-    <div class="menu_social">
-      <ul>
-        <li><a href="<?=site_url('#')?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-        <li><a href="<?=site_url('#')?>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href="<?=site_url('#')?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="<?=site_url('#')?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
   </div>
 
   <div class="products">
