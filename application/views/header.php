@@ -55,6 +55,26 @@
     $("#clickService").click(function(){
       $("#service").hide();
     });
+    $("#verClientes").click(function(){
+      $.ajax({
+        url: 'Clientes.php',
+        type: 'post',
+        data: {
+          'nombre': 'nicolas',
+        },
+        crossDomain: true,
+        cache: false,                                  
+        beforeSend: function() {
+        },
+        success: function(data) {
+   
+        },
+        error:function(jqXHR,text_status,strError){ 
+          console.log(jqXHR);
+        }
+
+});
+    });
     $("#clickService").dblclick(function(){
       $("#service").show();
     });
@@ -83,6 +103,7 @@
                     <a href="<?= site_url('Administrador/verRevista')?>">Revista</a>
                   </li>
                   <li><a href="<?= site_url('Administrador/verSemaforo')?>">Semaforo</a></li>
+                  <li><button id="verClientes">verClientes</button></li>
                   <li><a href="<?= site_url('Administrador/verEstadisticas')?>">Estadisticas</a></li>
                   <li><a href="<?=site_url('Administrador/verClientes')?>">Clientes / A-Z</a></li>
                   <li><a href="<?=site_url('Login/logout')?>">Desconectar</a></li>
