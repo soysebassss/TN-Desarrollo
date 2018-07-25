@@ -14,7 +14,6 @@ class Login extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('security');
 		$data = array();
-	
 		if (isset($_REQUEST['usu_correo']) && isset($_REQUEST['usu_clave'])) {
 			$admCorreo     = $_REQUEST['usu_correo'];
 			$admClave = $_REQUEST['usu_clave'];

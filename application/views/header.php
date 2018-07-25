@@ -77,15 +77,15 @@
               <nav class="main_nav">
                 <ul>
                   <li>
-                    <a href="<?= site_url('Welcome/index')?>">Servicios</a>
+                    <a href="<?= site_url('Administrador/index')?>">Servicios</a>
                   </li>
                   <li >
-                    <a href="<?= site_url('Welcome/verRevista')?>">Revista</a>
+                    <a href="<?= site_url('Administrador/verRevista')?>">Revista</a>
                   </li>
-                  <li><a href="<?= site_url('Welcome/verSemaforo')?>">Semaforo</a></li>
-                  <li><a href="<?= site_url('Welcome/verEstadisticas')?>">Estadisticas</a></li>
-                  <li><a href="<?=site_url('Welcome/verClientes')?>">Clientes / A-Z</a></li>
-                  <li><a href="<?=site_url('#')?>">Desconectar</a></li>
+                  <li><a href="<?= site_url('Administrador/verSemaforo')?>">Semaforo</a></li>
+                  <li><a href="<?= site_url('Administrador/verEstadisticas')?>">Estadisticas</a></li>
+                  <li><a href="<?=site_url('Administrador/verClientes')?>">Clientes / A-Z</a></li>
+                  <li><a href="<?=site_url('Login/logout')?>">Desconectar</a></li>
                 </ul>
               </nav>
               <div class="header_extra ml-auto">

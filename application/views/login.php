@@ -11,18 +11,18 @@
   </head>
 
   <body>
-      <form class="form-signin" action="<?=site_url('LoginController/checkLoginUser')?>" method="post">
+      <form class="form-signin" action="<?=site_url('Login')?>" method="post">
         <div class="text-center mb-4">
           <img src="<?=base_url('resources/imagenes/Logo.jpg')?>" width="200px">
         </div>
 
         <div class="form-label-group">
-          <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" required autofocus>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" required autofocus name="usu_correo">
           <label for="inputEmail">Correo Electrónico</label>
         </div>
 
         <div class="form-label-group">
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="usu_clave">
           <label for="inputPassword">Contraseña</label>
         </div>
 

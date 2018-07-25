@@ -35,7 +35,6 @@ class Usuario_model extends CI_Model {
     );
     return $requiredFields;
   }
-  
   public function isNew() {
     return $this->_columns['usu_id'] == 0;
   }
