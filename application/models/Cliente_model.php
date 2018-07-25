@@ -12,8 +12,8 @@ class Cliente_model extends CI_Model {
                 'cli_telefono'=>'',
                 'cli_giro'=>'',
                 'cli_nombrefantasia'=>'',
-                'cli_estado'=>1,
-                'cli_email'=>''
+                'cli_estado'=>0,
+                'cli_correo'=>''
 
         );
         protected static $_table = 'cliente';
@@ -34,11 +34,6 @@ class Cliente_model extends CI_Model {
         }
         public function getRequired() {
                 $requiredFields = array(
-                        'cli_nombre',
-                        'cli_rut',
-                        'cli_email',
-                        //'use_prof_id',
-                        //'use_password',
                 );
                 return $requiredFields;
         }

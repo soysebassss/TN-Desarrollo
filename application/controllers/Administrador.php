@@ -63,8 +63,20 @@ class Administrador extends CI_Controller {
 	}
 	public function eliminarCliente(){
 		$idCliente = $_POST['idCliente'];
-		$this->db->delete('Cliente', array('cli_id' => $idCliente)); 
-		redirect('Administrador/verClientes','refresh');
+		$cliente = $this->cliente->findById($idCliente);
+		$datosCliente = $cliente->toArray();
+		$datosCliente = $datosCliente['_columns'];
+		$datosCliente['cli_estado'] = 1;
+		var_dump($datosCliente);
+		exit();
+		$cliente = $this->cliente->create($datosCliente);
+		$camposFaltantesCliente = $this->cliente->validate();
+		if (count($camposFaltantesCliente) == 0) {
+			$this->cliente->save($datosCliente);
+			redirect('Administrador/verClientes','refresh');
+		}else{
+			echo "faltan campos";
+		}
 	}
 
 }
