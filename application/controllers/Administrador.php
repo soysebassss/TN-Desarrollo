@@ -56,6 +56,11 @@ class Administrador extends CI_Controller {
 			echo 'Faltan campos';
 		}
 	}
+	public function eliminarCliente(){
+		$idCliente = $_POST['idCliente'];
+		$this->db->delete('Cliente', array('cli_id' => $idCliente)); 
+		redirect('Administrador/verClientes','refresh');
+	}
 
 }
 

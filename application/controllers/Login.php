@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 		session_destroy();
 		$this->session->unset_userdata('logged_in');
 		//session_destroy(); //destruye la sesión, o sea el arreglo de sesión logged_in
-		redirect('Welcome/admin', 'refresh');
+		redirect('Welcome/login', 'refresh');
 	}
 	function check_database($pass) {
 		//Field validation succeeded.&nbsp; Validate against database

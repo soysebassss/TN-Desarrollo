@@ -18,13 +18,12 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Username</th>
+      <th scope="col">Nombre Fantasia</th>
       <th scope="col">RUT</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">E-mail</th>
       <th scope="col">Celular</th>
-      <th scope="col">Comuna</th>
       <th scope="col">Dirección</th>
       <th scope="col">Giro</th>
       <th scope="col">Editar</th>
@@ -32,49 +31,36 @@
     </tr>
   </thead>
   <tbody class="buscar">
+    <?php if(isset($dataClientes)):
+      foreach ($dataClientes as $key => $clientes) {
+        $clientes = $clientes->toArray();
+        $cliente = $clientes['_columns'];
+      ?>      
     <tr>
       <th scope="row">1</th>
-      <td>Username1</td>
-      <td>00000000-0</td>
-      <td>Nombre 1</td>
-      <td>Apellido 1</td>
-      <td>correo@correo.com</td>
-      <td>000000000</td>
-      <td>Comuna 1</td>
-      <td>Dirección 1</td>
-      <td>Giro 1</td>
+      <td><?php echo $cliente['cli_nombreFantasia'];?></td>
+      <td><?php echo $cliente['cli_rut'].'-'.$cliente['cli_dv'];?></td>
+      <td><?php echo $cliente['cli_nombre'];?></td>
+      <td><?php echo $cliente['cli_apellidos'];?></td>
+      <td><?php echo $cliente['cli_correo'];?></td>
+      <td><?php echo $cliente['cli_telefono'];?></td>
+      <td><?php echo $cliente['cli_direccion'];?></td>
+      <td><?php echo $cliente['cli_giro'];?></td>
       <td>
-      	<form method="post" action="<?=site_url('clienteController/editarCliente')?>">
-      		<input type="hidden" name="clienteId" value="<?=''?>">
-      		<button type="button" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-      	</form>
+        <form method="post" action="<?=site_url('Administrador/agregarCliente')?>">
+          <input type="hidden" name="idCliente" value='<?= $cliente['cli_id']?>'>
+          <button type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        </form>
       </td>
       <td>
-      	<button type="button" fakeid="<?=''?>" class="btn btn-outline-danger deleteUsr pull-right" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-user-times" aria-hidden="true" style="cursor:pointer"></i></button>
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row">2</th>
-      <td>Username2</td>
-      <td>00000000-0</td>
-      <td>Nombre 2</td>
-      <td>Apellido 2</td>
-      <td>correo@correo.com</td>
-      <td>000000000</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-      	<form method="post" action="<?=site_url('clienteController/editarCliente')?>">
-      		<input type="hidden" name="clienteId" value="<?=''?>">
-      		<button type="button" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-      	</form>
-      </td>
-      <td>
-      	<button type="button" fakeid="<?=''?>" class="btn btn-outline-danger deleteUsr pull-right" data-toggle="modal" data-target="#delete_modal" style="cursor:pointer"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+        <form method="post" action="<?=site_url('Administrador/eliminarCliente')?>">
+          <input type="hidden" name="idCliente" value="<?= $cliente['cli_id']?>">
+          <button type="submit"  class="btn btn-outline-danger deleteUsr pull-right"><i class="fa fa-user-times" aria-hidden="true" style="cursor:pointer"></i></button>
+        </form>
       </td>
     </tr>
+    <?php }?>
+    <?php endif;?>
  </tbody>
 </table>
 
