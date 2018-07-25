@@ -30,6 +30,11 @@ class Administrador extends CI_Controller {
 		//$this->load->view('contenido',$clientes['dataClientes']);
 		$this->load->view('footer');
 	}
+	public function agregarCliente(){
+		$this->load->view('header');
+		$this->load->view('agregarClientes');	
+		$this->load->view('footer');
+	}
 	public function verRevista(){
 		$this->load->view('header');
 		$this->load->view('revista');

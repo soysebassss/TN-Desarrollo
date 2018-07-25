@@ -57,23 +57,14 @@
     });
     $("#verClientes").click(function(){
       $.ajax({
-        url: 'Clientes.php',
-        type: 'post',
-        data: {
-          'nombre': 'nicolas',
-        },
-        crossDomain: true,
-        cache: false,                                  
-        beforeSend: function() {
-        },
-        success: function(data) {
-   
-        },
-        error:function(jqXHR,text_status,strError){ 
-          console.log(jqXHR);
-        }
-
-});
+                url: "<?=site_url('Administrador/detallesCliente')?>",
+                type: "POST",
+                dataType: "text",
+                data:{"nombre" : 'Broofdeath'},
+                success: function(data) {
+                    console.log(data);  
+                }
+            });
     });
     $("#clickService").dblclick(function(){
       $("#service").show();

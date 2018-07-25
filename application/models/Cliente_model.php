@@ -32,6 +32,20 @@ class Cliente_model extends CI_Model {
                 }
                 return $result;
         }
+        public function findByName($nombre){
+        $this->load->database();
+        $query = $this->db->where('cli_nombrefantasia',$nombre);
+        $query = $this->db->get('Cliente');
+        $result = null;
+        if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                        $result[] = $this->create($row);
+                }
+        }else{
+                echo "no existen clientes";
+        }
+        return $result;
+        }
         public function getRequired() {
                 $requiredFields = array(
                 );
