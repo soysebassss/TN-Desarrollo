@@ -7,8 +7,8 @@
 		</div>
 	</div>
 	<div class="col sm-3 offset-sm-6"><br>
-		<a href="<?=site_url('ClienteController/agregarCliente')?>">
-			<button class="btn btn-outline-primary" style="cursor:pointer"><i class="fa fa-plus"></i> Agregar Cliente/a </button>
+		<a href="<?=site_url('Administrador/agregarCliente')?>">
+			<button class="btn btn-outline-primary pull-right" style="cursor:pointer"><i class="fa fa-plus"></i> Agregar Cliente/a </button>
 		</a>
 	</div>
 </div>
