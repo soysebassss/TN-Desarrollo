@@ -4,10 +4,14 @@ class Usuario_model extends CI_Model {
   //las mismas columnas de la base de datos
   private $_columns = array(
     'usu_id'=>0,
+    'usu_nombre'=>'',
+    'usu_apellidos'=>'',
+    'usu_rut'=>0,
+    'usu_dv'=>0,
     'usu_correo'=>'',
-    'usu_clave'=>''
+    'usu_clave'=>'',
   );
-  protected static $_table = 'usuario';
+  protected static $_table = 'Usuario';
   
   public function __construct(){
   }

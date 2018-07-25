@@ -1,20 +1,19 @@
 <?php
-class Client_model extends CI_Model {
+class Cliente_model extends CI_Model {
 
         //las mismas columnas de la base de datos
         private $_columns = array(
                 'cli_id'=>0,
                 'cli_nombre'=>'',
-                'cli_apellidoPaterno'=>'',
-                'cli_apellidoMaterno'=>'',
+                'cli_apellidos'=>'',
                 'cli_rut'=>'',
                 'cli_dv'=>'',
-                'cli_nombrefantasia'=>'',
                 'cli_direccion'=>'',
                 'cli_telefono'=>'',
-                'cli_email'=>'',
-                'cli_comuna'=>'',
-                'cli_giro'=>''
+                'cli_giro'=>'',
+                'cli_nombrefantasia'=>'',
+                'cli_estado'=>1,
+                'cli_email'=>''
 
         );
         protected static $_table = 'cliente';
@@ -82,9 +81,9 @@ class Client_model extends CI_Model {
         }
 
         public function create($row) {
-                $client = new Client_model();
-                $client->setColumns($row);
-                return $client;
+                $cliente = new Cliente_model();
+                $cliente->setColumns($row);
+                return $cliente;
         }
 
         public function save() {
