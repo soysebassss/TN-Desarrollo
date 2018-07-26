@@ -45,17 +45,31 @@
                 }
             });
     });
+
+    var total =0;
+    var metrosRollo = 0; 
+    var valorRollo = 0;
+    var cantidadMetros = 0;
+    var resultado = 0;
     var cont = 1;
+    var totalCC = 0;
+    var valorTintas = 0;
+    var utilizados = 0;
+    var total = 0;
+    var tra = 0;
     $("#addJob").click(function(){
       //alert("Alerta");
       cont = cont+1;
-      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob" tripa='+cont+'>'+cont+') </div></div><div class="delete-'+cont+'"><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name=""></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number" id="cantidad"  class="form-control" placeholder="Cantidad.." name=""></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="text" id="valorUnitario"  class="form-control" placeholder="Valor Unitario.." name=""></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name=""></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Metros Rollo</label><br><input type="text" id="metrosRollo"  class="form-control" placeholder="Valor Rollo.." name=""></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="text"  class="form-control valorRollo" placeholder="Valor Rollo.." name=""></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Metros Utilizados</label><br><input type="text"    class="form-control cantidadMetros" placeholder="Cantidad Metros.." name=""></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Total CC</label><br><select id="totalCC" class="form-control"><option value="220">220 CC</option><option value="440">440 CC</option></select></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="text" id="valorTintas"  class="form-control" placeholder="Valor Tintas.." name=""></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">CC Utilizados  </label><br><input type="text" id="ccTinta"  class="form-control" placeholder="CC Utilizados.." name=""></div></div><br><div class="row"><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name=""></div></div><br></div>');
+      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob" tripa='+cont+'>'+cont+') </div></div><div class="delete-'+cont+'"><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name="trabajo['+cont+']["tra_nombre"]"></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number" id="cantidad"  class="form-control" placeholder="Cantidad.." name="trabajo['+cont+']["tra_cantidad"]"></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="text" id="valorUnitario"  class="form-control" placeholder="Valor Unitario.." name="trabajo['+cont+']["tra_precioUnitario"]"></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name="trabajo['+cont+']["tra_medida"]"></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Metros Rollo</label><br><input type="text" class="form-control metrosRollo" placeholder="Metros Rollo.." name="trabajo['+cont+']["tra_metrosTotalRollo"]"></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="text"  class="form-control valorRollo" placeholder="Valor Rollo.." name="trabajo['+cont+']["tra_valorRollo"]"></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Metros Utilizados</label><br><input type="text"  class="form-control cantidadMetros" placeholder="Cantidad Metros.." name="trabajo['+cont+']["tra_metrosLineales"]"></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Total CC</label><br><select class="form-control totalCC" name="trabajo['+cont+']["tra_totalTintaCC"]"><option value="220">220 CC</option><option value="440">440 CC</option></select></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="text"  class="form-control valorTintas" placeholder="Valor Tintas.." name="trabajo['+cont+']["tra_valorTintas"]"></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">CC Utilizados  </label><br><input type="text" class="form-control ccTinta" placeholder="CC Utilizados.." name="trabajo['+cont+']["tra_ccUtilizados"]"></div></div><br><div class="row"><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name="trabajo['+cont+']["tra_materiaPrima"]"></div></div><br></div>');
+      $("#addJob").attr('disabled','true');
+
     });
+
     var contador = 4;
     $("#addSer").click(function(){
      // alert("Juan");
       contador = contador+1;
-      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="text"  class="form-control" placeholder=Nuevo-'+contador+'... name=""></div></div><br></div>')
+      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="text"  class="form-control" placeholder=Nuevo-'+contador+'... name="costosFijos['+contador+']["cos_nuevoCostoFijo"]"></div></div><br></div>')
     });
     $(document).on('click','#DeleteJob',function(){
       $(this).remove();
@@ -77,8 +91,128 @@
     $("#clickService").dblclick(function(){
       $("#service").show();
     });
-    $(document).on('keyup','.cantidadMetros',function(){
-      alert("Hola");
+    
+    /*$(document).on('keyup','.cantidadMetros',function(){
+       
+    });*/
+    
+     $(document).on('keyup','.metrosRollo',function(){
+         if ($(this).val() != "" && $(".valorRollo").val() != "" && $(".cantidadMetros").val() != "" && $(".totalCC").val() != "" && $('.valorTintas').val() != "" && $('.ccTinta').val() != "") {
+      $("#CalcularDatos").removeAttr("disabled");
+    }else{
+      $("#CalcularDatos").attr('disabled','true');
+        $("#addJob").attr('disabled','true');
+    }
+      
+     });
+     $(document).on('keyup','.valorRollo',function(){
+         if ($(".metrosRollo").val() != "" && $(this).val() != "" && $(".cantidadMetros").val() != "" && $(".totalCC").val() != "" && $('.valorTintas').val() != "" && $('.ccTinta').val() != "") {
+      $("#CalcularDatos").removeAttr("disabled");
+    }else{
+      $("#CalcularDatos").attr('disabled','true');
+        $("#addJob").attr('disabled','true');
+    }
+      
+     });
+     $(document).on('keyup','.cantidadMetros',function(){
+       if ($(".metrosRollo").val() != "" && $(".valorRollo").val() != "" && $(this).val() != "" && $(".totalCC").val() != "" && $('.valorTintas').val() != "" && $('.ccTinta').val() != "") {
+      $("#CalcularDatos").removeAttr("disabled");
+    }else{
+      $("#CalcularDatos").attr('disabled','true');
+        $("#addJob").attr('disabled','true');
+    }
+     });
+     $(document).on('click','.totalCC',function(){
+         if ($(".metrosRollo").val() != "" && $(".valorRollo").val() != "" && $(".cantidadMetros").val() != "" && $(this).val() != "" && $('.valorTintas').val() != "" && $('.ccTinta').val() != "") {
+      $("#CalcularDatos").removeAttr("disabled");
+    }else{
+      $("#CalcularDatos").attr('disabled','true');
+        $("#addJob").attr('disabled','true');
+    }
+     });
+     $(document).on('keyup','.valorTintas',function(){
+          if ($(".metrosRollo").val() != "" && $(".valorRollo").val() != "" && $(".cantidadMetros").val() != "" && $(".totalCC").val() != "" && $(this).val() != "" && $('.ccTinta').val() != "") {
+      $("#CalcularDatos").removeAttr("disabled");
+    }else{
+      $("#CalcularDatos").attr('disabled','true');
+        $("#addJob").attr('disabled','true');
+    }
+      
+     });
+     $(document).on('keyup','.ccTinta',function(){
+        //exit = uno+dos+tres+cuatro+cinco+seis;
+        if ($(".metrosRollo").val() != "" && $(".valorRollo").val() != "" && $(".cantidadMetros").val() != "" && $(".totalCC").val() != "" && $(".valorTintas").val() != "" && $(this).val() != "") {
+      $("#CalcularDatos").removeAttr("disabled");
+    }else{
+      $("#CalcularDatos").attr('disabled','true');
+        $("#addJob").attr('disabled','true');
+    }
+      
+     });
+
+     
+    $("#CalcularDatos").click(function(){
+      $('.cantidadMetros').each(function( index ) {
+        //console.log( index + ": " + $( this ).val() );
+        cantidadMetros= parseInt($( this ).val());
+      });
+      $('.metrosRollo').each(function( index ) {
+        //console.log( index + ": " + $( this ).val() );
+        metrosRollo= parseInt($( this ).val());
+      });
+      $('.valorRollo').each(function( index ) {
+        //console.log( index + ": " + $( this ).val() );
+        valorRollo=parseInt($( this ).val());
+      });
+      resultado += parseInt((valorRollo/metrosRollo)*cantidadMetros);
+      console.log("MetrosTotal: "+metrosRollo+" valorRollo: "+valorRollo+" cantMetros: "+cantidadMetros);
+
+      console.log("resultado: "+resultado);
+      $("#totalPapel").val("$ "+resultado);
+      valorRollo=0;
+      metrosRollo=0;
+      cantidadMetros=0; 
+      //resultado=0;
+      ////////////// TINTAS
+      $('.totalCC').each(function( index ) {
+        //console.log( index + ": " + $( this ).val() );
+        totalCC= parseInt($( this ).val());
+      });
+      $('.valorTintas').each(function( index ) {
+        //console.log( index + ": " + $( this ).val() );
+        valorTintas= parseInt($( this ).val());
+      });
+      $('.ccTinta').each(function( index ) {
+        //console.log( index + ": " + $( this ).val() );
+        utilizados= parseInt($( this ).val());
+      });
+      total = ((valorTintas/totalCC)*utilizados);
+      tra += parseInt(total, 10);
+      console.log("ccTotales: "+totalCC+" valorTinta: "+valorTintas+" cantTinta: "+utilizados);
+
+      console.log("resultadoTinta: "+tra);
+      $("#totalTinta").val("$ "+tra);
+        totalCC = 0;
+        valorTintas = 0;
+        utilizados = 0;
+        //total = 0;
+        //tra = 0;
+            /*valorRollo += parseInt($(".valorRollo").val());
+         cantidadMetros += parseInt($('.cantidadMetros').val());
+          metrosRollo += parseInt($(".metrosRollo").val());
+        console.log("valRollo: "+valorRollo);
+        console.log("Metro: "+metrosRollo);
+          console.log("cantM: "+cantidadMetros); 
+          resultado = (valorRollo/metrosRollo)*cantidadMetros;
+          console.log(resultado);
+          total += resultado;*/
+      /*$('.cantidadMetros').each(function( index ) {
+        
+      });*/
+       $(this).attr('disabled', 'true'); 
+       $("#addJob").removeAttr("disabled");
+        
+
     });
     /*$(".cantidadMetros").keyup(function(){
       alert("Hola");
@@ -92,14 +226,14 @@
       $("#totalPapel").val(total);
       console.log("Valor total: "+total);
     });*/
-    $("#ccTinta").keyup(function() {
+    /*$("#ccTinta").keyup(function() {
       var totalCC = $("#totalCC").val();
       var valorTintas = $("#valorTintas").val();
       var utilizados = $(this).val();
       var total = (valorTintas/totalCC)*utilizados;
       var tra = parseInt(total, 10);
       $("#totalTinta").val(tra);
-    });
+    });*/
     $("#totalHoras").keyup(function() {
        var valorHora = $("#valorHora").val();
        var totalHoras = $(this).val();
