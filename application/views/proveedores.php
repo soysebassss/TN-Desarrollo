@@ -25,7 +25,6 @@
       <th scope="col">Comuna</th>
       <th scope="col">Banco</th>
       <th scope="col">Editar</th>
-      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody class="buscar">
@@ -43,16 +42,7 @@
       <td><?php echo $proveedor['pro_comuna'];?></td>
       <td><?php echo $proveedor['pro_banco'];?></td>
       <td>
-        <form method="post" action="<?=site_url('Administrador/agregarProveedores')?>">
-          <input type="hidden" name="idProveedor" value='<?= $proveedor['pro_id']?>'>
-          <button type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-        </form>
-      </td>
-      <td>
-        <form method="post" action="<?=site_url('Administrador/eliminarProveedores')?>">
-          <input type="hidden" name="idProveedor" value="<?= $proveedor['pro_id']?>">
-          <button type="submit"  class="btn btn-outline-danger deleteUsr pull-right"><i class="fa fa-user-times" aria-hidden="true" style="cursor:pointer"></i></button>
-        </form>
+          <a href="<?=site_url('Administrador/agregarProveedor/'.$proveedor['pro_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
       </td>
     </tr>
     <?php }?>

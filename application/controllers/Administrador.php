@@ -41,14 +41,54 @@ class Administrador extends CI_Controller {
 	//$this->load->view('contenido',$clientes['dataClientes']);
 	$this->load->view('footer');
 	}
-	public function agregarCliente(){
+	public function agregarCliente($id = null){
+		$cliente;
+		if(  !is_null($id) && is_numeric($id)  && !is_null($cliente = $this->cliente->findById($id))  ){
+			
+			
+		}else{
+
+			$cliente = new Cliente_model();
+		}
+		if(isset($_POST['cliente'])){
+			$cliente = $this->cliente->create($_POST['cliente']);
+			//$cliente->set('cli_id', $id);
+			$camposFaltantes = $cliente->validate($cliente);
+			if (count($camposFaltantes) == 0) {
+				$cliente->save();
+				redirect('Administrador/verClientes','refresh');
+			}else{
+				$data['mensaje'] = 'Faltan campos';
+			}
+		}	
+		$data['cliente'] = $cliente;
 		$this->load->view('header');
-		$this->load->view('agregarClientes');	
+		$this->load->view('agregarClientes', $data);	
 		$this->load->view('footer');
 	}
-	public function agregarProveedor(){
+	public function agregarProveedor($id = null){
+	$proveedor;
+	if(  !is_null($id) && is_numeric($id)  && !is_null($proveedor = $this->proveedor->findById($id))  ){
+		
+		
+	}else{
+
+		$proveedor = new Proveedor_model();
+	}
+	if(isset($_POST['proveedor'])){
+		$proveedor = $this->proveedor->create($_POST['proveedor']);
+		//$proveedor->set('cli_id', $id);
+		$camposFaltantes = $proveedor->validate($proveedor);
+		if (count($camposFaltantes) == 0) {
+			$proveedor->save();
+			redirect('Administrador/verProveedores','refresh');
+		}else{
+			$data['mensaje'] = 'Faltan campos';
+		}
+	}	
+	$data['proveedor'] = $proveedor;
 	$this->load->view('header');
-	$this->load->view('agregarProveedores');	
+	$this->load->view('agregarProveedores', $data);	
 	$this->load->view('footer');
 	}
 	public function verRevista(){
@@ -65,19 +105,6 @@ class Administrador extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('estadisticas');
 		$this->load->view('footer');
-	}
-	public function registrarCliente(){
-		$dataCliente = $_POST['cliente'];
-		$cliente = $this->cliente->create($dataCliente);
-		$camposFaltantes = $cliente->validate($cliente);
-		if (count($camposFaltantes) == 0) {
-			var_dump($cliente);
-			//exit();
-			$cliente->save($dataCliente);
-			redirect('Administrador/verClientes','refresh');
-		}else{
-			echo 'Faltan campos';
-		}
 	}
 	public function registrarProveedor(){
 	$dataProveedor = $_POST['proveedor'];
@@ -113,24 +140,6 @@ class Administrador extends CI_Controller {
 
     	}
 	}
-	public function eliminarCliente(){
-		$idCliente = $_POST['idCliente'];
-		$cliente = $this->cliente->findById($idCliente);
-		$datosCliente = $cliente->toArray();
-		$datosCliente = $datosCliente['_columns'];
-		$datosCliente['cli_estado'] = 1;
-		var_dump($datosCliente);
-		exit();
-		$cliente = $this->cliente->create($datosCliente);
-		$camposFaltantesCliente = $this->cliente->validate();
-		if (count($camposFaltantesCliente) == 0) {
-			$this->cliente->save($datosCliente);
-			redirect('Administrador/verClientes','refresh');
-		}else{
-			echo "faltan campos";
-		}
-	}
-
 	public function agregarFactura(){
 		if ($this->input->post()) {
 			$factura = $this->facturas->create($this->input->post('factura'));

@@ -26,8 +26,8 @@
       <th scope="col">Celular</th>
       <th scope="col">Dirección</th>
       <th scope="col">Giro</th>
+      <th scope="col">Estado</th>
       <th scope="col">Editar</th>
-      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody class="buscar">
@@ -35,6 +35,9 @@
       foreach ($dataClientes as $key => $clientes) {
         $clientes = $clientes->toArray();
         $cliente = $clientes['_columns'];
+        if ($cliente['cli_estado'] == 1 || $cliente['cli_estado'] == 0):
+          
+        
       ?>      
     <tr>
       <th scope="row"><?php echo $cliente['cli_id'];?></th>
@@ -46,24 +49,90 @@
       <td><?php echo $cliente['cli_telefono'];?></td>
       <td><?php echo $cliente['cli_direccion'];?></td>
       <td><?php echo $cliente['cli_giro'];?></td>
+      <td><?php switch ($cliente['cli_estado']) {
+        case 0:
+            echo 'Activo';      
+          break;
+        case 1:
+            echo 'Inactivo';
+          break;          
+        case 2:
+            echo 'Moroso';
+          break;        
+        default:
+            echo 'Eliminado';
+          break;
+      }?></td>
       <td>
-        <form method="post" action="<?=site_url('Administrador/agregarCliente')?>">
-          <input type="hidden" name="idCliente" value='<?= $cliente['cli_id']?>'>
-          <button type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-        </form>
-      </td>
-      <td>
-        <form method="post" action="<?=site_url('Administrador/eliminarCliente')?>">
-          <input type="hidden" name="idCliente" value="<?= $cliente['cli_id']?>">
-          <button type="submit"  class="btn btn-outline-danger deleteUsr pull-right"><i class="fa fa-user-times" aria-hidden="true" style="cursor:pointer"></i></button>
-        </form>
+          <a href="<?=site_url('Administrador/agregarCliente/'.$cliente['cli_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        
       </td>
     </tr>
+    <?php endif;?>
     <?php }?>
     <?php endif;?>
  </tbody>
 </table>
-
+<h3>Tabla Clientes Morosos</h3>
+<table class="table table-bordered table-responsive" style="color:black;">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Fantasia</th>
+      <th scope="col">RUT</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Giro</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody class="buscar">
+    <?php if(isset($dataClientes)):
+      foreach ($dataClientes as $key => $clientes) {
+        $clientes = $clientes->toArray();
+        $cliente = $clientes['_columns'];
+        if ($cliente['cli_estado'] == 2):
+          
+        
+      ?>      
+    <tr>
+      <th scope="row"><?php echo $cliente['cli_id'];?></th>
+      <td><?php echo $cliente['cli_nombreFantasia'];?></td>
+      <td><?php echo $cliente['cli_rut'].'-'.$cliente['cli_dv'];?></td>
+      <td><?php echo $cliente['cli_nombre'];?></td>
+      <td><?php echo $cliente['cli_apellidos'];?></td>
+      <td><?php echo $cliente['cli_correo'];?></td>
+      <td><?php echo $cliente['cli_telefono'];?></td>
+      <td><?php echo $cliente['cli_direccion'];?></td>
+      <td><?php echo $cliente['cli_giro'];?></td>
+      <td><?php switch ($cliente['cli_estado']) {
+        case 0:
+            echo 'Activo';      
+          break;
+        case 1:
+            echo 'Inactivo';
+          break;          
+        case 2:
+            echo 'Moroso';
+          break;        
+        default:
+            echo 'Eliminado';
+          break;
+      }?></td>
+      <td>
+          <a href="<?=site_url('Administrador/agregarCliente/'.$cliente['cli_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        
+      </td>
+    </tr>
+    <?php endif;?>
+    <?php }?>
+    <?php endif;?>
+ </tbody>
+</table>
 <!-- Modal Eliminar -->
 <div id="delete_modal" class="modal fade" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
