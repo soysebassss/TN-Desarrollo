@@ -274,6 +274,7 @@
                   <li><button id="verClientes" type="button">verClientes</button></li>
                   <li><a href="<?= site_url('Administrador/verEstadisticas')?>">Estadisticas</a></li>
                   <li><a href="<?=site_url('Administrador/verClientes')?>">Clientes / A-Z</a></li>
+                  <li><a href="<?=site_url('Administrador/verProveedores')?>">Proveedores / A-Z</a></li>
                   <li><a href="<?=site_url('Login/logout')?>">Desconectar</a></li>
                 </ul>
               </nav>
