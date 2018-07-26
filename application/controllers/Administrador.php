@@ -151,6 +151,15 @@ class Administrador extends CI_Controller {
 		echo 'Faltan campos';
 	}
 	}
+	public function eliminarCliente($id = null){
+		if(!is_null($id) && is_numeric($id)){
+			$this->db->delete('Cliente', array('cli_id' => $id)); 
+			redirect('Administrador/papeleraClientes','refresh');
+			
+		}else{
+
+		}
+	}
 	public function detallesCliente(){
 		if(isset($_REQUEST['nombre'])){
 			$nombre = $_REQUEST['nombre'];
