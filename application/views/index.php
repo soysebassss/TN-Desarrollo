@@ -92,11 +92,11 @@
     </div><br>
     <div class="row">
       <div class="col-md-6 col-5">
-        <input type="button" id="CalcularDatos" style="width: 100%; text-decoration: none; color: white;" class="btn btn-primary" disabled value="Calcular" name="">
+        <input type="button" id="CalcularDatos" style="width: 100%; text-decoration: none; color: white; cursor:pointer;" class="btn btn-primary" disabled value="Calcular" name="">
         
       </div>
       <div class="col-md-6 col-7" >
-        <input type="button" id="addJob" style="width: 100%; text-decoration: none; color: white;" class="btn btn-primary" disabled value="Añadir trabajo" name="">
+        <input type="button" id="addJob" style="width: 100%; text-decoration: none; color: white; cursor:pointer;" class="btn btn-primary" disabled value="Añadir trabajo" name="">
          
       </div>
     </div>
@@ -177,7 +177,7 @@
       </div><br>
       <div class="row">
         <div class="col-md-12 col-12" style="text-align: right;">
-          <input type="button " id="addSer" style="text-decoration: none; color: white; width: 160px;" class="btn btn-primary" value="Añadir" name="">
+          <input type="button " id="addSer" style="text-decoration: none; color: white; width: 160px; cursor:pointer;" class="btn btn-primary" value="Añadir" name="">
         </div>
       </div><br>
     </div>
@@ -321,6 +321,6 @@
     </div>
   </div>
 </div>
-<button type="submit" class="btn btn-primary">Enviar Datos</button>
+<button type="submit" class="btn btn-primary" style="cursor:pointer;">Enviar Datos</button>
 </form>
  
