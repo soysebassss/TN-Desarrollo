@@ -11,6 +11,8 @@ class Administrador extends CI_Controller {
 			$this->load->model('Usuario_model', 'user', true);
 			$this->load->model('Cliente_model', 'cliente', true);
 			$this->load->model('Proveedor_model', 'proveedor', true);
+			$this->load->model('Factura_model', 'facturas', true);
+			$this->load->model('FormaPago_model', 'formapagos', true);
 		}else{
 	
 			redirect('/','refresh');
@@ -126,6 +128,20 @@ class Administrador extends CI_Controller {
 			redirect('Administrador/verClientes','refresh');
 		}else{
 			echo "faltan campos";
+		}
+	}
+
+	public function agregarFactura(){
+		if ($this->input->post()) {
+			$factura = $this->facturas->create($this->input->post('factura'));
+			$factura->insert();
+			$formapago = $this->formapagos->create($this->input->post('formapago'));
+			$formapago->insert();
+
+			$this->session->set_flashdata('notice', 'Factura creada exitosamente');
+		}else{
+			$this->session->set_flashdata('alert', 'No se ha podido crear, favor verificar los datos ingresados');
+			redirect('Administrador/index');
 		}
 	}
 
