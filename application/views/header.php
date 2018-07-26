@@ -51,7 +51,7 @@
     var valorRollo = 0;
     var cantidadMetros = 0;
     var resultado = 0;
-    var cont = 1;
+    var cont = 0;
     var totalCC = 0;
     var valorTintas = 0;
     var utilizados = 0;
@@ -60,7 +60,7 @@
     $("#addJob").click(function(){
       //alert("Alerta");
       cont = cont+1;
-      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob" tripa='+cont+'>'+cont+') </div></div><div class="delete-'+cont+'"><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name="trabajo['+cont+']["tra_nombre"]"></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number" id="cantidad"  class="form-control" placeholder="Cantidad.." name="trabajo['+cont+']["tra_cantidad"]"></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="text" id="valorUnitario"  class="form-control" placeholder="Valor Unitario.." name="trabajo['+cont+']["tra_precioUnitario"]"></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name="trabajo['+cont+']["tra_medida"]"></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Metros Rollo</label><br><input type="text" class="form-control metrosRollo" placeholder="Metros Rollo.." name="trabajo['+cont+']["tra_metrosTotalRollo"]"></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="text"  class="form-control valorRollo" placeholder="Valor Rollo.." name="trabajo['+cont+']["tra_valorRollo"]"></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Metros Utilizados</label><br><input type="text"  class="form-control cantidadMetros" placeholder="Cantidad Metros.." name="trabajo['+cont+']["tra_metrosLineales"]"></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Total CC</label><br><select class="form-control totalCC" name="trabajo['+cont+']["tra_totalTintaCC"]"><option value="220">220 CC</option><option value="440">440 CC</option></select></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="text"  class="form-control valorTintas" placeholder="Valor Tintas.." name="trabajo['+cont+']["tra_valorTintas"]"></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">CC Utilizados  </label><br><input type="text" class="form-control ccTinta" placeholder="CC Utilizados.." name="trabajo['+cont+']["tra_ccUtilizados"]"></div></div><br><div class="row"><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name="trabajo['+cont+']["tra_materiaPrima"]"></div></div><br></div>');
+      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob" tripa='+cont+'>'+cont+') </div></div><div class="delete-'+cont+'"><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name="trabajo[ ]" required></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number" id="cantidad"  class="form-control" placeholder="Cantidad.." name="trabajo[ ]" required></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="number" id="valorUnitario"  class="form-control" placeholder="Valor Unitario.." name="trabajo[ ]" required></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name="trabajo[ ]" required></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Metros Rollo</label><br><input type="number" class="form-control metrosRollo" placeholder="Metros Rollo.." name="trabajo[ ]" required></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="number"  class="form-control valorRollo" placeholder="Valor Rollo.." name="trabajo[ ]" required></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Metros Utilizados</label><br><input type="number"  class="form-control cantidadMetros" placeholder="Cantidad Metros.." name="trabajo[ ]" required></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Total CC</label><br><select class="form-control totalCC" name="trabajo[ ]" required><option value="0">[SELECCIONE TOTAL CC...]</option><option value="220">220 CC</option><option value="440">440 CC</option></select></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="number"  class="form-control valorTintas" placeholder="Valor Tintas.." name="trabajo[ ]" required></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">CC Utilizados  </label><br><input type="number" class="form-control ccTinta" placeholder="CC Utilizados.." name="trabajo[ ]" required></div></div><br><div class="row"><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name="trabajo[ ]" required></div></div><br></div>');
       $("#addJob").attr('disabled','true');
 
     });
@@ -69,7 +69,7 @@
     $("#addSer").click(function(){
      // alert("Juan");
       contador = contador+1;
-      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="text"  class="form-control" placeholder=Nuevo-'+contador+'... name="costosFijos['+contador+']["cos_nuevoCostoFijo"]"></div></div><br></div>')
+      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="number"  class="form-control" placeholder=Nuevo-'+contador+'... name="costosFijos[ ]" required></div></div><br></div>')
     });
     $(document).on('click','#DeleteJob',function(){
       $(this).remove();
@@ -91,7 +91,30 @@
     $("#clickService").dblclick(function(){
       $("#service").show();
     });
-    
+    $("#clickCostosVar").click(function(){
+      $("#CostosVariables").hide();
+    });
+    $("#clickCostosVar").dblclick(function(){
+      $("#CostosVariables").show();
+    });
+    $("#clickCostosFij").click(function(){
+      $("#CostosFijos").hide();
+    });
+    $("#clickCostosFij").dblclick(function(){
+      $("#CostosFijos").show();
+    });
+     $("#clickProveedor").click(function(){
+      $("#detProveedor").hide();
+    });
+    $("#clickProveedor").dblclick(function(){
+      $("#detProveedor").show();
+    });
+    $("#clickFactura").click(function(){
+      $("#detFactura").hide();
+    });
+    $("#clickFactura").dblclick(function(){
+      $("#detFactura").show();
+    });
     /*$(document).on('keyup','.cantidadMetros',function(){
        
     });*/
@@ -238,16 +261,27 @@
        var valorHora = $("#valorHora").val();
        var totalHoras = $(this).val();
        var totalSub = valorHora*totalHoras;
-       $("#totalSub").val(totalSub); 
+       $("#totalSub").val("$ "+totalSub); 
     });
     $("#totalHoraHom").keyup(function() {
        var valorHora = $("#valorHoraHom").val();
        var totalHoras = $(this).val();
        var totalHomb = valorHora*totalHoras;
-       $("#totalHomb").val(totalHomb); 
+       $("#totalHomb").val("$ "+totalHomb); 
     });
+    
   });
 </script>
+<style type="text/css">
+  h1, h2, h3, h4, h5, h6, label{
+    -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+  }
+</style>
 </head>
 <body>
 
