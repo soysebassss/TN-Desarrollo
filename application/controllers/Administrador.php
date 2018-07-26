@@ -33,6 +33,14 @@ class Administrador extends CI_Controller {
 		//$this->load->view('contenido',$clientes['dataClientes']);
 		$this->load->view('footer');
 	}
+	public function papeleraClientes(){
+	// $this->load->model('Cliente_model');
+    $clientes ['dataClientes'] = $this->cliente->findAll();
+	$this->load->view('header');
+	$this->load->view('papeleraClientes',$clientes);		
+	//$this->load->view('contenido',$clientes['dataClientes']);
+	$this->load->view('footer');
+	}
 	public function verProveedores(){
 	// $this->load->model('Cliente_model');
     $proveedores ['dataProveedores'] = $this->proveedor->findAll();
@@ -64,6 +72,30 @@ class Administrador extends CI_Controller {
 		$data['cliente'] = $cliente;
 		$this->load->view('header');
 		$this->load->view('agregarClientes', $data);	
+		$this->load->view('footer');
+	}
+	public function recuperarCliente($id = null){
+		$cliente;
+		if(  !is_null($id) && is_numeric($id)  && !is_null($cliente = $this->cliente->findById($id))  ){
+			
+			
+		}else{
+
+			$cliente = new Cliente_model();
+		}	
+		if(!is_null($cliente)){
+			$cliente->set('cli_estado', 0);
+			$camposFaltantes = $cliente->validate($cliente);
+			if (count($camposFaltantes) == 0) {
+				$cliente->save();
+				redirect('Administrador/verClientes','refresh');
+			}else{
+				$data['mensaje'] = 'Faltan campos';
+			}
+		}	
+		$data['cliente'] = $cliente;
+		$this->load->view('header');
+		$this->load->view('papeleraClientes', $data);	
 		$this->load->view('footer');
 	}
 	public function agregarProveedor($id = null){

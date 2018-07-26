@@ -6,13 +6,22 @@
   		<input id="filtrar" type="text" class="form-control">
 		</div>
 	</div>
-  <div class="col-sm-6 text-center"><br>
+  <div class="col-sm-5 text-center"><br>
     <h3>Tabla Clientes</h3>
   </div>
-	<div class="col-sm-3"><br>
-		<a href="<?=site_url('Administrador/agregarCliente')?>">
-			<button class="btn btn-outline-primary pull-right" style="cursor:pointer"><i class="fa fa-plus"></i> Agregar Cliente/a </button>
-		</a>
+	<div class="col-sm-4"><br>
+    <div class="row">
+      <div class="col-md-6">
+      <a href="<?=site_url('Administrador/papeleraClientes')?>">
+      <button class="btn btn-outline-primary pull-left" style="cursor:pointer"><i class="fa fa-plus"></i> Papelera </button>
+      </a>
+      </div>
+      <div class="col-md-6">
+      <a href="<?=site_url('Administrador/agregarCliente')?>">
+      <button class="btn btn-outline-primary pull-right" style="cursor:pointer"><i class="fa fa-plus"></i> Agregar Cliente/a </button>
+      </a>
+      </div>
+    </div>
 	</div>
 </div>
 

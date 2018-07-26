@@ -11,7 +11,7 @@
 
 <form action="<?=site_url('Administrador/agregarCliente/'.$cliente->get('cli_id'));?>" method="post">
   <div class="form-row">
-    <input type="hidden" value="<?=$cliente->get('cli_id')?>" name="cliente[cli_id]"   >
+    <input type="hidden" value="<?=$cliente->get('cli_id')?>" name="cliente[cli_id]">
     <div class="form-group col-md-4">
       <label for="inputNombre">Nombre</label>
       <input type="text" value="<?=$cliente->get('cli_nombre')?>" name="cliente[cli_nombre]"  class="form-control" id="inputNombre" placeholder="Nombre" required="required">
@@ -59,6 +59,7 @@
     <div class="form-group col-md-6">
       <label class="control-label col-md-2" for="selectEstado">Estado</label>
       <select name="cliente[cli_estado]" id="selectEstado" class="form-control">
+        <option value="-">Seleccionar Estado</option>
         <option value="0">Activo</option>
         <option value="1">Inactivo</option> 
         <option value="2">Moroso</option>
