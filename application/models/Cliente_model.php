@@ -7,16 +7,16 @@ class Cliente_model extends CI_Model {
                 'cli_nombre'=>'',
                 'cli_apellidos'=>'',
                 'cli_rut'=>'',
-                'cli_dv'=>'',
+                'cli_dv'=>0,
                 'cli_direccion'=>'',
                 'cli_telefono'=>'',
                 'cli_giro'=>'',
-                'cli_nombrefantasia'=>'',
+                'cli_nombreFantasia'=>'',
                 'cli_estado'=>0,
                 'cli_correo'=>''
 
         );
-        protected static $_table = 'cliente';
+        protected static $_table = 'Cliente';
 
         public function __construct(){
 
@@ -48,6 +48,7 @@ class Cliente_model extends CI_Model {
         }
         public function getRequired() {
                 $requiredFields = array(
+
                 );
                 return $requiredFields;
         }
@@ -101,9 +102,11 @@ class Cliente_model extends CI_Model {
                         if ($this->_columns['cli_id'] == 0 || is_null($this->_columns['cli_id'])) {
                                 $this->db->insert(self::$_table, $this->_columns);
                                 $this->_columns['cli_id'] = $this->db->insert_id();
+                                echo $this->_columns['cli_id'];
                         } else {
                                 $this->db->where('cli_id', $this->_columns['cli_id']);
                                 $this->db->update(self::$_table, $this->_columns);
+                                echo 'DOS';
                         }
                 } catch (Exception $e) {
                         echo "se produjo una excepcion del tipo".$e->getMessage();

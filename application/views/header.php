@@ -60,9 +60,15 @@
                 url: "<?=site_url('Administrador/detallesCliente')?>",
                 type: "POST",
                 dataType: "text",
-                data:{"nombre" : 'Broofdeath'},
+                data:{"nombre" : 'Seloco'},
+                beforeSend:function(){
+                  
+                },
                 success: function(data) {
-                    console.log(data);  
+                    alert(data);
+                    //console.log(data);  
+                },complete:function(){
+                  
                 }
             });
     });
@@ -94,7 +100,7 @@
                     <a href="<?= site_url('Administrador/verRevista')?>">Revista</a>
                   </li>
                   <li><a href="<?= site_url('Administrador/verSemaforo')?>">Semaforo</a></li>
-                  <li><button id="verClientes">verClientes</button></li>
+                  <li><button id="verClientes" type="button">verClientes</button></li>
                   <li><a href="<?= site_url('Administrador/verEstadisticas')?>">Estadisticas</a></li>
                   <li><a href="<?=site_url('Administrador/verClientes')?>">Clientes / A-Z</a></li>
                   <li><a href="<?=site_url('Login/logout')?>">Desconectar</a></li>

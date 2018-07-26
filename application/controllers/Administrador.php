@@ -10,6 +10,7 @@ class Administrador extends CI_Controller {
 		if (!is_null($this->_user)) {
 			$this->load->model('Usuario_model', 'user', true);
 			$this->load->model('Cliente_model', 'cliente', true);
+			$this->load->model('Proveedor_model', 'proveedor', true);
 		}else{
 	
 			redirect('/','refresh');
@@ -30,10 +31,23 @@ class Administrador extends CI_Controller {
 		//$this->load->view('contenido',$clientes['dataClientes']);
 		$this->load->view('footer');
 	}
+	public function verProveedores(){
+	// $this->load->model('Cliente_model');
+    $proveedores ['dataProveedores'] = $this->proveedor->findAll();
+	$this->load->view('header');
+	$this->load->view('proveedores',$proveedores);		
+	//$this->load->view('contenido',$clientes['dataClientes']);
+	$this->load->view('footer');
+	}
 	public function agregarCliente(){
 		$this->load->view('header');
 		$this->load->view('agregarClientes');	
 		$this->load->view('footer');
+	}
+	public function agregarProveedor(){
+	$this->load->view('header');
+	$this->load->view('agregarProveedores');	
+	$this->load->view('footer');
 	}
 	public function verRevista(){
 		$this->load->view('header');
@@ -53,13 +67,49 @@ class Administrador extends CI_Controller {
 	public function registrarCliente(){
 		$dataCliente = $_POST['cliente'];
 		$cliente = $this->cliente->create($dataCliente);
-		$camposFaltantes = $this->cliente->validate($cliente);
+		$camposFaltantes = $cliente->validate($cliente);
 		if (count($camposFaltantes) == 0) {
-			$this->cliente->save($dataCliente);
+			var_dump($cliente);
+			//exit();
+			$cliente->save($dataCliente);
 			redirect('Administrador/verClientes','refresh');
 		}else{
 			echo 'Faltan campos';
 		}
+	}
+	public function registrarProveedor(){
+	$dataProveedor = $_POST['proveedor'];
+	$proveedor = $this->proveedor->create($dataProveedor);
+	$camposFaltantes = $proveedor->validate($proveedor);
+	if (count($camposFaltantes) == 0) {
+		var_dump($proveedor);
+		//exit();
+		$proveedor->save($dataCliente);
+		redirect('Administrador/verProveedores','refresh');
+	}else{
+		echo 'Faltan campos';
+	}
+	}
+	public function detallesCliente(){
+		if(isset($_REQUEST['nombre'])){
+			$nombre = $_REQUEST['nombre'];
+			$cliente = $this->cliente->findByName($nombre);
+			print_r($cliente);
+			$datosCliente = array(
+				'id' => $cliente->get('cli_id'),
+	            'nombre' => $cliente->get('cli_nombre'),
+	            'apellidos'=> $cliente->get('cli_apelidos'),
+	            'rut' => $cliente->get('cli_rut'),
+	            'dv'=> $cliente->get('cli_dv'),
+	            'direccion' => $cliente->get('cli_direccion'),
+	            'nombreFantasia'=> $cliente->get('cli_nombreFantasia'),
+	            'estado' => $cliente->get('cli_estado'));
+			print_r($datosCliente); exit();
+			echo json_encode($datosCliente);
+	 	}else{
+        echo  "existen campos vacíos";
+
+    	}
 	}
 	public function eliminarCliente(){
 		$idCliente = $_POST['idCliente'];
