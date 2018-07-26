@@ -28,33 +28,6 @@
 <script type="text/javascript">
   
   $(document).ready(function(){
-    var cont = 1;
-    $("#addJob").click(function(){
-      //alert("Alerta");
-      cont = cont+1;
-      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob">'+cont+') <br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number"  class="form-control" placeholder="Cantidad.." name=""></div></div><br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="text"  class="form-control" placeholder="Valor Unitario.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name=""></div></div><br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Cantidad Metros</label><br><input type="text"  class="form-control" placeholder="Cantidad Metros.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="text"  class="form-control" placeholder="Valor Rollo.." name=""></div></div><br><div class="row"><div class="col" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="text"  class="form-control" placeholder="Valor Tintas.." name=""></div><div class="col" style="text-align: left;"><label style="color: black;">CC Utilizados Tinta</label><br><input type="text"  class="form-control" placeholder="CC Utilizados.." name=""></div></div><br></div></div>');
-    });
-    var contador = 4;
-    $("#addSer").click(function(){
-     // alert("Juan");
-      contador = contador+1;
-      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer">'+contador+') <br><div class="row"><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="text"  class="form-control" placeholder=Nuevo-'+contador+'... name=""></div></div><br></div></div>')
-    });
-    $(document).on('click','#DeleteJob',function(){
-      $(this).remove();
-    });
-    $(document).on('click','#DeleteSer',function(){
-      $(this).remove();
-    });
-    $("#clickEnterprise").click(function(){
-      $("#enterprise").hide();
-    });
-    $("#clickEnterprise").dblclick(function(){
-      $("#enterprise").show();
-    });
-    $("#clickService").click(function(){
-      $("#service").hide();
-    });
     $("#verClientes").click(function(){
       $.ajax({
                 url: "<?=site_url('Administrador/detallesCliente')?>",
@@ -72,8 +45,72 @@
                 }
             });
     });
+    var cont = 1;
+    $("#addJob").click(function(){
+      //alert("Alerta");
+      cont = cont+1;
+      $(".anotherJob").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteJob" tripa='+cont+'>'+cont+') </div></div><div class="delete-'+cont+'"><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Trabajo</label><br><input type="text"  class="form-control" placeholder="Trabajo a realizar.." name=""></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Cantidad</label><br><input type="number" id="cantidad"  class="form-control" placeholder="Cantidad.." name=""></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Unitario</label><br><input type="text" id="valorUnitario"  class="form-control" placeholder="Valor Unitario.." name=""></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Medida</label><br><input type="text"  class="form-control" placeholder="Medida.." name=""></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Metros Rollo</label><br><input type="text" id="metrosRollo"  class="form-control" placeholder="Valor Rollo.." name=""></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Rollo</label><br><input type="text"  class="form-control valorRollo" placeholder="Valor Rollo.." name=""></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Metros Utilizados</label><br><input type="text"    class="form-control cantidadMetros" placeholder="Cantidad Metros.." name=""></div></div><br><div class="row"><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Total CC</label><br><select id="totalCC" class="form-control"><option value="220">220 CC</option><option value="440">440 CC</option></select></div><div class="col-md-6 col-6" style="text-align: left;"><label style="color: black;">Valor Tintas</label><br><input type="text" id="valorTintas"  class="form-control" placeholder="Valor Tintas.." name=""></div><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">CC Utilizados  </label><br><input type="text" id="ccTinta"  class="form-control" placeholder="CC Utilizados.." name=""></div></div><br><div class="row"><div class="col-md-12 col-12" style="text-align: left;"><label style="color: black;">Materia Prima</label><br><input type="text"  class="form-control" placeholder="Materia Prima.." name=""></div></div><br></div>');
+    });
+    var contador = 4;
+    $("#addSer").click(function(){
+     // alert("Juan");
+      contador = contador+1;
+      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="text"  class="form-control" placeholder=Nuevo-'+contador+'... name=""></div></div><br></div>')
+    });
+    $(document).on('click','#DeleteJob',function(){
+      $(this).remove();
+      $(".delete-"+$(this).attr('tripa')).remove();
+    });
+    $(document).on('click','#DeleteSer',function(){
+      $(this).remove();
+      $(".del-"+$(this).attr('trip')).remove();
+    });
+    $("#clickEnterprise").click(function(){
+      $("#enterprise").hide();
+    });
+    $("#clickEnterprise").dblclick(function(){
+      $("#enterprise").show();
+    });
+    $("#clickService").click(function(){
+      $("#service").hide();
+    });
     $("#clickService").dblclick(function(){
       $("#service").show();
+    });
+    $(document).on('keyup','.cantidadMetros',function(){
+      alert("Hola");
+    });
+    /*$(".cantidadMetros").keyup(function(){
+      alert("Hola");
+      $( ".valorRollo" ).each(function( index ) {
+        console.log( index + ": " + $( this ).val() );
+      });
+      /*var metrosRollo = $("#metrosRollo").val();
+      var valorRollo = $("#valorRollo").val();
+      var cantidadMetros = $(this).val();
+      var total = (valorRollo/metrosRollo)*cantidadMetros;
+      $("#totalPapel").val(total);
+      console.log("Valor total: "+total);
+    });*/
+    $("#ccTinta").keyup(function() {
+      var totalCC = $("#totalCC").val();
+      var valorTintas = $("#valorTintas").val();
+      var utilizados = $(this).val();
+      var total = (valorTintas/totalCC)*utilizados;
+      var tra = parseInt(total, 10);
+      $("#totalTinta").val(tra);
+    });
+    $("#totalHoras").keyup(function() {
+       var valorHora = $("#valorHora").val();
+       var totalHoras = $(this).val();
+       var totalSub = valorHora*totalHoras;
+       $("#totalSub").val(totalSub); 
+    });
+    $("#totalHoraHom").keyup(function() {
+       var valorHora = $("#valorHoraHom").val();
+       var totalHoras = $(this).val();
+       var totalHomb = valorHora*totalHoras;
+       $("#totalHomb").val(totalHomb); 
     });
   });
 </script>
