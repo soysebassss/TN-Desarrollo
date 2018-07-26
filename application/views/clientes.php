@@ -1,4 +1,4 @@
-<div class="row justify-content-between">
+<div class="row justify-content-start">
 	<div class="col-sm-3"><br>
 		<!--Buscador-->
 		<div class="input-group mb-2">
@@ -6,14 +6,17 @@
   		<input id="filtrar" type="text" class="form-control">
 		</div>
 	</div>
-	<div class="col sm-3 offset-sm-6"><br>
+  <div class="col-sm-6 text-center"><br>
+    <h3>Tabla Clientes</h3>
+  </div>
+	<div class="col-sm-3"><br>
 		<a href="<?=site_url('Administrador/agregarCliente')?>">
 			<button class="btn btn-outline-primary pull-right" style="cursor:pointer"><i class="fa fa-plus"></i> Agregar Cliente/a </button>
 		</a>
 	</div>
 </div>
 
-<!--Tabla con los clientes-->
+<!--== Tabla Clientes ==-->
 <table class="table table-bordered table-responsive" style="color:black;">
   <thead>
     <tr>
@@ -36,8 +39,6 @@
         $clientes = $clientes->toArray();
         $cliente = $clientes['_columns'];
         if ($cliente['cli_estado'] == 1 || $cliente['cli_estado'] == 0):
-          
-        
       ?>      
     <tr>
       <th scope="row"><?php echo $cliente['cli_id'];?></th>
@@ -62,18 +63,30 @@
         default:
             echo 'Eliminado';
           break;
-      }?></td>
+      }?>
+      </td>
       <td>
-          <a href="<?=site_url('Administrador/agregarCliente/'.$cliente['cli_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        
+        <a href="<?=site_url('Administrador/agregarCliente/'.$cliente['cli_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
       </td>
     </tr>
     <?php endif;?>
     <?php }?>
     <?php endif;?>
- </tbody>
-</table>
-<h3>Tabla Clientes Morosos</h3>
+  </tbody>
+</table><hr>
+<!--== Tabla Clientes Morosos ==-->
+<div class="row justify-content-start">
+  <div class="col-sm-3"><br>
+    <!--Buscador-->
+    <div class="input-group mb-2">
+      <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+      <input id="filtrarmorosos" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="col-sm-6 text-center"><br>
+    <h3>Tabla Clientes Morosos</h3>
+  </div>
+</div>
 <table class="table table-bordered table-responsive" style="color:black;">
   <thead>
     <tr>
@@ -90,14 +103,12 @@
       <th scope="col">Editar</th>
     </tr>
   </thead>
-  <tbody class="buscar">
+  <tbody class="buscarmorosos">
     <?php if(isset($dataClientes)):
       foreach ($dataClientes as $key => $clientes) {
         $clientes = $clientes->toArray();
         $cliente = $clientes['_columns'];
-        if ($cliente['cli_estado'] == 2):
-          
-        
+        if ($cliente['cli_estado'] == 2):   
       ?>      
     <tr>
       <th scope="row"><?php echo $cliente['cli_id'];?></th>
@@ -122,16 +133,16 @@
         default:
             echo 'Eliminado';
           break;
-      }?></td>
+      }?>
+      </td>
       <td>
-          <a href="<?=site_url('Administrador/agregarCliente/'.$cliente['cli_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        
+        <a href="<?=site_url('Administrador/agregarCliente/'.$cliente['cli_id'])?>" type="submit" class="btn btn-outline-secondary pull-right" style="cursor:pointer"><i class="fa fa-pencil" aria-hidden="true"></i></a>
       </td>
     </tr>
     <?php endif;?>
     <?php }?>
     <?php endif;?>
- </tbody>
+  </tbody>
 </table>
 <!-- Modal Eliminar -->
 <div id="delete_modal" class="modal fade" role="dialog" aria-hidden="true">
@@ -173,6 +184,20 @@ $(document).ready(function () {
   }(jQuery)); 
 });
 /* Fin Buscador de clientes */
+
+/* Buscador de clientes morosos */
+$(document).ready(function () {
+  (function ($) {
+    $('#filtrarmorosos').keyup(function () { 
+      var rex = new RegExp($(this).val(), 'i');
+      $('.buscarmorosos tr').hide();
+      $('.buscarmorosos tr').filter(function () {
+        return rex.test($(this).text());
+      }).show(); 
+    }) 
+  }(jQuery)); 
+});
+/* Fin Buscador de clientes morosos */
 
 /* Eliminar Cliente */
 var iddelete = 0;
