@@ -1,5 +1,11 @@
 <?php
-echo "CLIENTE<br><br>";
+echo "<br><br> TRABAJO <br><br>";
+print_r($_POST['trabajo']);
+echo "<br><br> COSTOS FIJOS <br><br>";
+print_r($_POST['costosFijos']);
+//echo "TOTAL TRABAJO: ".$_POST['totalTrab'];
+//echo "TOTAL COSTOS FIJOS: ".$_POST['costosTotalFijo'];
+/*echo "CLIENTE<br><br>";
 print_r($_POST['cliente']) ;
 echo "<br><br> TRABAJO <br><br>";
 print_r($_POST['trabajo']);
@@ -18,4 +24,5 @@ print_r($_POST['formaPago']);
 echo "<br><br> FACTURA <br><br>";
 print_r($_POST['factura']);
 echo "<br><br> FORMA DE PAGO FACTURA <br><br>";
-print_r($_POST['formaPagoFac']);
+print_r($_POST['formaPagoFac']);*/
+exit();
