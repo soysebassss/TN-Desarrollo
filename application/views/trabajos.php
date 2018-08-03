@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="col sm-3 offset-sm-6"><br>
-    <form method="post" action="Welcome">
+    <form method="post" action="<?=site_url('Administrador/trabajosCliente');?>">
     <div class="row">
       <div class="col sm 6">
         <?php foreach($dataClientes as $key => $clientes){

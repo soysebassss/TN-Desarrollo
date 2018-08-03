@@ -302,7 +302,7 @@
           <label style="color: black;">Total</label><br><input type="number"  class="form-control totalFac" placeholder="Total.." name="factura[fac_total]" required>
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">N° Factura</label><br><input type="text"  class="form-control" placeholder="N° Factura.." name="factura[fac_numFactura]" required>
+          <label style="color: black;">N° Factura</label><br><input type="text"  class="form-control" placeholder="N° Factura.." name="factura[fac_numero]" required>
         </div>
       </div><br>
       <div class="row">

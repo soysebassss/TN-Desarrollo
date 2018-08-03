@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Factura_model extends CI_Model {
 
    private $_columns = array(
-		'fac_numero' => 0,
+		'fac_id' => 0,
+      'fac_numero' => 0,
 		'fac_valorNeto' => 0,
 		'fac_iva' => 0,
 		'fac_glosa' => '',
@@ -37,7 +38,7 @@ class Factura_model extends CI_Model {
    }
    
    public function isNew() {
-      return $this->_columns['fac_numero'] == 0;
+      return $this->_columns['fac_id'] == 0;
    }
    
    public function validate() {
@@ -63,7 +64,7 @@ class Factura_model extends CI_Model {
    public function findById($id = null) {
       $id = intval($id);
       $this->load->database();
-      $res    = $this->db->get_where(self::$_table, array('fac_numero' => $id));
+      $res    = $this->db->get_where(self::$_table, array('fac_id' => $id));
       $result = null;
       if ($res->num_rows() == 1) {
          $result = $this->create($res->row_object());
@@ -74,21 +75,19 @@ class Factura_model extends CI_Model {
    public function get($attr) {
       return $this->_columns[$attr];
    }
-   /*
-   public function create($row) {
+      public function create($row) {
       $factura = new Factura_model();
       $factura->setColumns($row);
       return $factura;
    }
-   */
    public function save() {
       try {
          $this->load->database();
-         if ($this->_columns['fac_numero'] == 0 || is_null($this->_columns['fac_numero'])) {
+         if ($this->_columns['fac_id'] == 0 || is_null($this->_columns['fac_id'])) {
             $this->db->insert(self::$_table, $this->_columns);
-            $this->_columns['fac_numero'] = $this->db->insert_id();
+            $this->_columns['fac_id'] = $this->db->insert_id();
          } else {
-            $this->db->where('fac_numero', $this->_columns['fac_numero']);
+            $this->db->where('fac_id', $this->_columns['fac_id']);
             $this->db->update(self::$_table, $this->_columns);
          }
       } catch (Exception $e) {
@@ -103,13 +102,6 @@ class Factura_model extends CI_Model {
       return get_object_vars($this);
    }
    
-   public function create($row){
-      $factura =  new Factura_model();
-      foreach ($row as $key => $value){
-         $factura->_columns[$key] = $value;
-      }
-      return $factura;
-   }
 
    public function insert(){
       $this->db->insert('todonorte',$this->_columns);
