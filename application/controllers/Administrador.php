@@ -164,7 +164,7 @@ class Administrador extends CI_Controller {
 		$trabajo = $this->Trabajo_model->create($datosTrabajo[0]);
 		$camposFaltantes = $trabajo->validate($trabajo);
 		if (count($camposFaltantes) == 0) {
-			//$trabajo->save($datosTrabajo[0]);
+			$trabajo->save($datosTrabajo[0]);
 			/*
 			for($i=1;$i<=3;$i++){
 				if (isset($datosTrabajo[$i])) {
@@ -182,7 +182,8 @@ class Administrador extends CI_Controller {
 			$formaPago = $this->FormaPago_model->create($datosFormaPago);
 			$camposFaltantesFormaPago = $formaPago->validate($formaPago);
 			if (count($camposFaltantesFormaPago) == 0) {
-				//$formaPago->save($datosFormaPago);
+				$formaPago->save($datosFormaPago);
+				$ultimoIdFormPago = $formaPago->db->insert_id();
 				$datosCostosVariables = $_REQUEST['costos'];
 				$datosCostosFijos = $_REQUEST['costosFijos'];
 				$costoVariable = $this->CostoVariable_model->create($datosCostosVariables);
@@ -208,7 +209,7 @@ class Administrador extends CI_Controller {
 					$factura = implode(";", $_REQUEST['factura']);
 					$forma = implode(";",$_POST['formaPago']);
 					$formaFac = implode(";",$_POST['formaPagoFac']);
-					 redirect('Administrador/principalDos/?valor='.$compra."&valorDos=".$factura."&bancoProv=".$bancoProv."&formaPro=".$forma."&formaFc=".$formaFac,'refresh');
+					 redirect('Administrador/principalDos/?valor='.$compra."&valorDos=".$factura."&bancoProv=".$bancoProv."&formaPro=".$forma."&formaFc=".$formaFac."&idForm=".$ultimoIdFormPago,'refresh');
 				}else{
 					echo 'todo mal';
 				}
@@ -222,6 +223,13 @@ class Administrador extends CI_Controller {
 		$arrayDosFac = explode(";", $_GET['formaFc']);
 		print_r($arrayDos);
 		print_r($arrayDosFac);
+		$factura->set('fac_numero',$arrayDos[5]);
+		$factura->set('fac_valorNeto',$arrayDos[2]);
+		$factura->set('fac_iva',$arrayDos[3]);
+		$factura->set('fac_glosa',$arrayDos[6]);
+		$factura->set('fac_recargo',$arrayDos[0]);
+		$factura->set('fac_descuento',$arrayDos[1]);
+		$factura->set('fac_total',$arrayDos[4]);
 		echo '<br><br>DATOS COMPRA PROVEEDOR<br><br>';
 		$array = explode(";", $_GET['valor']);
 		$prov = explode(";", $_GET['bancoProv']);
@@ -229,6 +237,12 @@ class Administrador extends CI_Controller {
 		print_r($array);
 		print_r($prov);
 		print_r($provForm);
+		$compra->set('com_codigoProducto',$array[1]);
+		$compra->set('com_iva',$array[3]);
+		$compra->set('com_valorTotal',$array[0]);
+		$compra->set('com_numeroFactura',$array[4]);
+		$compra->set('com_recargo',$array[5]);
+		$compra->set('com_for_id',$_GET['idForm']);
 		 
 
 		//var_dump($compra);
