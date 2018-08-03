@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-6">
       <a href="<?=site_url('Administrador/papeleraClientes')?>">
-      <button class="btn btn-outline-primary pull-left" style="cursor:pointer"><i class="fa fa-plus"></i> Papelera </button>
+      <button class="btn btn-outline-primary pull-left" style="cursor:pointer"><i class="fa fa-trash-o"></i> Papelera </button>
       </a>
       </div>
       <div class="col-md-6">
