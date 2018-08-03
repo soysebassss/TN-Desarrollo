@@ -8,7 +8,10 @@ class Factura_model extends CI_Model {
 		'fac_valorNeto' => 0,
 		'fac_iva' => 0,
 		'fac_glosa' => '',
-		'fac_for_id' => 0
+      'fac_recargo' => 0,
+      'fac_descuento' => 0,
+      'fac_total' => 0,
+		'fac_for_pago' => 0
 	);
 	protected static $_table = 'Factura';
 

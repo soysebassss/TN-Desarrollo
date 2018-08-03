@@ -1,16 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CostoFijo_model extends CI_Model {
+class CostoVariable_model extends CI_Model {
 private $_columns = array(
-		'cos_id' => 0,
-		'cos_valorDespacho' => '',
-		'cos_arriendo' => '',
-		'cos_servicio' => null,
-                'cos_telefono' => 0,
-                'cos_otro' => 0
+		'cos_varId' => 0,
+		'cos_papel' => 0,
+		'cos_tinta' => 0
 	);
-	protected static $_table = 'CostosFijos';
+	protected static $_table = 'CostosVariables';
 
 	public function __construct(){
 	}
@@ -31,7 +28,7 @@ private $_columns = array(
                 return $requiredFields;
         }
         public function isNew() {
-                return $this->_columns['cos_id'] == 0;
+                return $this->_columns['cos_varId'] == 0;
         }
         public function validate() {
                 $emptyCollumn = array();
@@ -53,7 +50,7 @@ private $_columns = array(
         public function findById($id = null) {
                 $id = intval($id);
                 $this->load->database();
-                $res    = $this->db->get_where(self::$_table, array('cos_id' => $id));
+                $res    = $this->db->get_where(self::$_table, array('cos_varId' => $id));
                 $result = null;
                 if ($res->num_rows() == 1) {
                         $result = $this->create($res->row_object());
@@ -73,11 +70,11 @@ private $_columns = array(
         public function save() {
                 try {
                         $this->load->database();
-                        if ($this->_columns['cos_id'] == 0 || is_null($this->_columns['cos_id'])) {
+                        if ($this->_columns['cos_varId'] == 0 || is_null($this->_columns['cos_varId'])) {
                                 $this->db->insert(self::$_table, $this->_columns);
-                                $this->_columns['cos_id'] = $this->db->insert_id();
+                                $this->_columns['cos_varId'] = $this->db->insert_id();
                         } else {
-                                $this->db->where('cos_id', $this->_columns['cos_id']);
+                                $this->db->where('cos_varId', $this->_columns['cos_varId']);
                                 $this->db->update(self::$_table, $this->_columns);
                         }
                 } catch (Exception $e) {
