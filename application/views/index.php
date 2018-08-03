@@ -11,7 +11,10 @@
     <div id="enterprise" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
       <div class="col-md-6 col-6" style="text-align: left;">
-        <label style="color: black;">Nombre Fantasia</label><br><input type="text" class="form-control" placeholder="Nombre.." name="cliente['cli_nombreFantasia']" required>
+        <label style="color: black;">Nombre Fantasia</label><br><input type="text" class="form-control nameFantasia" placeholder="Nombre.." name="cliente['cli_nombreFantasia']" required>
+         <input type="text"   class="idCliente" name="">
+        <!--<input type="button" class="nameFantasia" value="ya" name=""> -->
+        <!--<button class="nameFantasia">YA</button>-->
       </div> 
       <div class="col-md-6 col-6" style="text-align: left;">
           <label style="color: black;">Rut</label><br><input type="text" class="form-control clienteRut" maxlength="12"  placeholder="Rut.." name="cliente['cli_rut']" required>
@@ -19,15 +22,15 @@
     </div><br>
     <div class="row">
         <div class="col-md-6 col-6" style="text-align: left;">
-          <label style="color: black;">Razón Social</label><br><input type="text" class="form-control"  placeholder="Razón Social.." name="cliente['cli_giro']" required>
+          <label style="color: black;">Razón Social</label><br><input type="text" class="form-control razonSocial"  placeholder="Razón Social.." name="cliente['cli_giro']" required>
         </div>
         <div class="col-md-6 col-6" style="text-align: left;">
-          <label style="color: black;">Telefono</label><br><input type="text" class="form-control"  placeholder="Telefono.." name="cliente['cli_telefono']" required>
+          <label style="color: black;">Telefono</label><br><input type="text" class="form-control telefonoCliente"  placeholder="Telefono.." name="cliente['cli_telefono']" required>
         </div>
     </div><br>
     <div class="row">
         <div class="col-md-12 col-12" style="text-align: left;">
-          <label style="color: black;">Correo Electronico</label><br><input type="email"  class="form-control" placeholder="Correo Electronico.." name="cliente['cli_correo']" required>
+          <label style="color: black;">Correo Electronico</label><br><input type="email"  class="form-control correoCliente" placeholder="Correo Electronico.." name="cliente['cli_correo']" required>
         </div>
     </div><br>
     </div>
@@ -39,7 +42,7 @@
       </div>
     </div>
     <br>
-    <input type="text" hidden class="totalTrab" name="totalTrab">
+    <input type="text"  class="totalTrab" name="totalTrab">
     <div id="service" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6" style="text-align: left;">
@@ -158,7 +161,7 @@
       </div>
     </div>
     <br>
-    <input type="text" hidden class="costosTotalFijo" name="costosTotalFijo">
+    <input type="text"  class="costosTotalFijo" name="costosTotalFijo">
     <div id="CostosFijos" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6">
@@ -195,11 +198,11 @@
       </div>
     </div>
     <br>
-    <input type="text" class="totalProveedor" hidden="" name="totalProveedor">
+    <input type="text" class="totalProveedor" name="totalProveedor">
     <div id="detProveedor" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-3 col-6">
-          <label style="color: black;">Proveedor</label><br><input type="text"  class="form-control" placeholder="Proveedor.." name="proveedor['pro_nombre']" required>
+          <label style="color: black;">Proveedor</label><br><input type="text"  class="form-control showData" placeholder="Proveedor.." name="proveedor['pro_nombre']" required>
         </div>
         <div class="col-md-3 col-6">
           <label style="color: black;">Cod. Producto</label><br><input type="text"  class="form-control" placeholder="Cod. Producto.." name="compra['com_codigoProducto']" required>
@@ -332,6 +335,6 @@
     </div>
   </div>
 </div>
-<button type="submit" class="btn btn-primary showData" style="cursor:pointer;">Enviar Datos</button>
+<button type="submit" class="btn btn-primary " style="cursor:pointer;">Enviar Datos</button>
 </form>
  

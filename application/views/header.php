@@ -347,12 +347,12 @@
 
      
 });
-    $(".showData").click(function(){
+    $(".showData").keyup(function(){
        $('.costosFijosVal').each(function( index ) {
         //console.log( index + ": " + $( this ).val() );
         costosFijosValor += parseInt($( this ).val());
       });
-       alert("ValorCostosFijos: "+costosFijosValor);
+       //alert("ValorCostosFijos: "+costosFijosValor);
        $(".costosTotalFijo").val(costosFijosValor);
        costosFijosValor=0;
     });
@@ -387,9 +387,44 @@
           
     $(".totalCliente").val(parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()));
     $(".netoFac").val(parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()));
-    $(".ivaFac").val((parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()))*0.19);
-    $(".totalFac").val((parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()))+((parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()))*0.19));
+    $(".ivaFac").val(parseInt(((parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()))*0.19),10));
+    $(".totalFac").val(parseInt((parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()))+((parseInt($(".totalTrab").val())+parseInt($(".costosVariablesTotal").val())+parseInt($(".costosTotalFijo").val())+parseInt($(".totalProveedor").val()))*0.19),10));
    // alert("TRABAJO: "+$(".totalTrab").val()+" VARIABLES: "+$(".costosVariablesTotal").val()+" FIJOS: "+$(".costosTotalFijo").val()+" PROVEEDOR: "+$(".totalProveedor").val());
+    });
+    $(".nameFantasia").keyup(function(){
+       var parametros = {
+                "nombre" : $(this).val()
+        };
+        $.ajax({
+                data:  parametros,
+                url:   '<?=site_url('mostrar')?>',
+                type:  'post',
+                dataType: 'json',
+                beforeSend: function () {
+                       
+                },
+                success:  function (response) {
+                  console.log(response);
+                   
+                  
+               
+                     $(".clienteRut").val(response.rut+"-"+response.dv);
+                  $(".razonSocial").val(response.giro);
+                  $(".telefonoCliente").val(response.telefono);
+                  $(".correoCliente").val(response.correo);
+                   $(".idCliente").val(response['id']);
+                       // $("#resultado").html(response["rut"]);
+                },
+              error: function(jqXHR, textStatus, errorThrown){
+                console.log("error");
+                   $(".clienteRut").val("-");
+                  $(".razonSocial").val("-");
+                  $(".telefonoCliente").val("-");
+                  $(".correoCliente").val("-@X.cl");
+                  $(".idCliente").val("0");
+                   
+                }
+        });
     });
   });
 </script>
