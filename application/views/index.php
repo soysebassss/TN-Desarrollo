@@ -199,7 +199,7 @@
       </div>
     </div>
     <br>
-    <input type="text" class="totalProveedor" name="totalProveedor">
+   <input type="text" class="totalProveedor" name="compra[com_valorTotal]">
     <div id="detProveedor" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-3 col-6">

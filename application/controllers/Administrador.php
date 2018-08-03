@@ -164,7 +164,7 @@ class Administrador extends CI_Controller {
 		$trabajo = $this->Trabajo_model->create($datosTrabajo[0]);
 		$camposFaltantes = $trabajo->validate($trabajo);
 		if (count($camposFaltantes) == 0) {
-			$trabajo->save($datosTrabajo[0]);
+			//$trabajo->save($datosTrabajo[0]);
 			/*
 			for($i=1;$i<=3;$i++){
 				if (isset($datosTrabajo[$i])) {
@@ -182,7 +182,7 @@ class Administrador extends CI_Controller {
 			$formaPago = $this->FormaPago_model->create($datosFormaPago);
 			$camposFaltantesFormaPago = $formaPago->validate($formaPago);
 			if (count($camposFaltantesFormaPago) == 0) {
-				$formaPago->save($datosFormaPago);
+				//$formaPago->save($datosFormaPago);
 				$datosCostosVariables = $_REQUEST['costos'];
 				$datosCostosFijos = $_REQUEST['costosFijos'];
 				$costoVariable = $this->CostoVariable_model->create($datosCostosVariables);
@@ -196,13 +196,19 @@ class Administrador extends CI_Controller {
 					$costoTinta = explode('$ ', $costoTintaFormulario);
 					$costoVariable->set('cos_papel',$costoPapel[1]);
 					$costoVariable->set('cos_tinta', $costoTinta[1]);
-					$costoFijo->save($datosCostosFijos);
-					$costoVariable->save();
-					exit();
-					$data = array();
-					$data['factura'] = $_REQUEST['factura'];
-					$data['compra'] = $_REQUEST['compra'];
-					redirect('Administrador/principalDos','refresh',$data);
+					//$costoFijo->save($datosCostosFijos);
+					//$costoVariable->save();
+					//exit();
+					//$data = array();
+					//$data['factura'] = $_REQUEST['factura'];
+					//
+					//$joel = $_REQUEST['compra'];
+					$bancoProv = implode(";",$_POST['proveedor']);
+					$compra = implode(";", $_REQUEST['compra']);
+					$factura = implode(";", $_REQUEST['factura']);
+					$forma = implode(";",$_POST['formaPago']);
+					$formaFac = implode(";",$_POST['formaPagoFac']);
+					 redirect('Administrador/principalDos/?valor='.$compra."&valorDos=".$factura."&bancoProv=".$bancoProv."&formaPro=".$forma."&formaFc=".$formaFac,'refresh');
 				}else{
 					echo 'todo mal';
 				}
@@ -210,9 +216,22 @@ class Administrador extends CI_Controller {
 		}
 	}
 	public function principalDos(){
-		echo 'DATOS TRABAJO<br>';
-		echo 'DATOS COMPRA<br>';
-		var_dump($compra);
+
+		echo 'DATOS FACTURA TOTAL<br>';
+		$arrayDos = explode(";", $_GET['valorDos']);
+		$arrayDosFac = explode(";", $_GET['formaFc']);
+		print_r($arrayDos);
+		print_r($arrayDosFac);
+		echo '<br><br>DATOS COMPRA PROVEEDOR<br><br>';
+		$array = explode(";", $_GET['valor']);
+		$prov = explode(";", $_GET['bancoProv']);
+		$provForm = explode(";", $_GET['formaPro']);
+		print_r($array);
+		print_r($prov);
+		print_r($provForm);
+		 
+
+		//var_dump($compra);
 	}
 	public function eliminarCliente($id = null){
 		if(!is_null($id) && is_numeric($id)){
