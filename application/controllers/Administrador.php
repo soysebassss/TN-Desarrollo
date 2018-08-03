@@ -151,6 +151,28 @@ class Administrador extends CI_Controller {
 		echo 'Faltan campos';
 	}
 	}
+	public function principal(){
+		echo 'DATOS CLIENTE<br>';
+		var_dump($_REQUEST['cliente']);
+		echo '<br>';
+		echo 'DATOS PROVEEDOR<br>';
+		var_dump($_REQUEST['proveedor']);
+		echo '<br>';
+		echo 'DATOS TRABAJO<br>';
+		var_dump($_REQUEST['trabajo']);
+		echo 'DATOS TRABAJO<br>';
+		echo 'DATOS COMPRA<br>';
+		var_dump($_REQUEST['compra']);
+		echo '<br>';
+		echo 'DATOS HORAS<br>';
+		var_dump($_REQUEST['horas']);
+		echo '<br>';
+		echo 'DATOS FORMA<br>';
+		var_dump($_REQUEST['formaPago']);
+		echo '<br>';
+		echo 'DATOS FACTURA<br>';
+		var_dump($_REQUEST['factura']);
+	}
 	public function eliminarCliente($id = null){
 		if(!is_null($id) && is_numeric($id)){
 			$this->db->delete('Cliente', array('cli_id' => $id)); 
