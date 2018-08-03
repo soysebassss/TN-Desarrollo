@@ -22,31 +22,31 @@
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-3 col-9">
+    <div class="form-group col-md-4 col-12">
       <label for="inputRut">RUT</label>
-      <input type="text" value="<?=$proveedor->get('pro_rut')?>" name="proveedor[pro_rut]"  class="form-control" id="inputRut" placeholder="RUT" required="required">
+      <input type="text" value="<?=$proveedor->get('pro_rut')?>" name="proveedor[pro_rut]"  class="form-control" id="inputRut" placeholder="RUT"  maxlength="12" required="required">
     </div>
-    <div class="form-group col-md-1 col-3">
-      <label for="inputDv">DV</label>
-      <input type="text" value="<?=$proveedor->get('pro_dv')?>" name="proveedor[pro_dv]"  class="form-control" id="inputDv" placeholder="DV" required="required">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
+     <div class="form-group col-md-6 col-12">
       <label for="inputDireccion">Direccion</label>
       <input type="text" value="<?=$proveedor->get('pro_direccion')?>" name="proveedor[pro_direccion]"  class="form-control" id="inputTelefono" placeholder="123 Seynt Seya" required="required">
     </div>
-    <div class="form-group col-md-6">
+    <!--<div class="form-group col-md-1 col-3">
+      <label for="inputDv">DV</label>
+      <input type="text" value="1" name=" "  class="form-control" id="inputDv" placeholder="DV" >
+    </div>-->
+  </div>
+  <div class="form-row">
+   
+    <div class="form-group col-md-4 col-12">
       <label for="inputComuna">Comuna</label>
       <input type="text" value="<?=$proveedor->get('pro_comuna')?>" name="proveedor[pro_comuna]"  class="form-control" id="inputDireccion" placeholder="Comuna" required="required">
     </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6 col-12">
       <label for="inputBanco">Banco</label>
       <input type="text" value="<?=$proveedor->get('pro_banco')?>" name="proveedor[pro_banco]"  class="form-control" id="inputGiro" placeholder="Banco" required="required">
-    </div>    
-  </div><hr>
+    </div> 
+  </div>
+  <hr>
   <div class="row justify-content-center">
     <div class="col-md-2 col-5">
       <a href="<?=site_url('Administrador/verProveedores')?>">
