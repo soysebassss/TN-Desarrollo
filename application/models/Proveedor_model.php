@@ -28,6 +28,20 @@ class Proveedor_model extends CI_Model {
                 }
                 return $result;
         }
+        public function findByName($nombre){
+        $this->load->database();
+        $query = $this->db->like('pro_nombre',$nombre);
+        $query = $this->db->get('Proveedor');
+        $result = null;
+        if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                        $result[] = $this->create($row);
+                }
+        }else{
+                $result[] =  "no existen clientes";
+        }
+        return $result;
+        }
         public function getRequired() {
                 $requiredFields = array(
                         'pro_nombre',

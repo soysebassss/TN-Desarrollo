@@ -203,7 +203,9 @@
     <div id="detProveedor" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-3 col-6">
-          <label style="color: black;">Proveedor</label><br><input type="text"  class="form-control showData" placeholder="Proveedor.." name="proveedor[pro_nombre]" required>
+          <label style="color: black;">Proveedor</label><br><input type="text"  class="form-control showData nameProveedor" placeholder="Proveedor.." name="proveedor[pro_nombre]" required>
+          <div class="delayNameProveedor"></div>
+         <input type="text" hidden class="idProveedor" name="proveedor[pro_id]">
         </div>
         <div class="col-md-3 col-6">
           <label style="color: black;">Cod. Producto</label><br><input type="text"  class="form-control" placeholder="Cod. Producto.." name="compra[com_codigoProducto]" required>
@@ -250,7 +252,7 @@
       </div><br>
       <div class="row">
         <div class="col-md-12 col-12">
-          <label style="color: black;">Banco</label><br><input type="text"  class="form-control checklife" placeholder="Banco.." name="proveedor[pro_banco]" required>
+          <label style="color: black;">Banco</label><br><input type="text"  class="form-control checklife proveedorBanco" placeholder="Banco.." name="proveedor[pro_banco]" required>
         </div>
       </div><br>
       <div class="row">

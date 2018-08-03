@@ -45,7 +45,6 @@
                 }
             });
     });
-
     var total =0;
     var pruebaC = 0;
     var pruebaT = 0;
@@ -405,9 +404,6 @@
                 },
                 success:  function (response) {
                   console.log(response);
-                   
-                  
-               
                      $(".clienteRut").val(response.rut );
                   $(".razonSocial").val(response.giro);
                   $(".telefonoCliente").val(response.telefono);
@@ -428,7 +424,34 @@
                 }
         });
     });
-
+    $(".nameProveedor").keyup(function(){
+       var parametros = {
+                "nombre" : $(this).val()
+        };
+        $.ajax({
+                data:  parametros,
+                url:   '<?=site_url('mostrarProveedores')?>',
+                type:  'post',
+                dataType: 'json',
+                beforeSend: function () {
+                       
+                },
+                success:  function (response) {
+                  console.log(response);
+                    $(".proveedorNombre").val(response.nombre);
+                    $(".proveedorBanco").val(response.banco);
+                    $(".idProveedor").val(response['id']);
+                       // $("#resultado").html(response["rut"]);
+                },
+              error: function(jqXHR, textStatus, errorThrown){
+                console.log("error");
+                    $(".idProveedor").val("0");
+                    $(".proveedorBanco").val("N/A");
+                    $(".delayNameProveedor").text("¡No hay coincidencias!");
+                  
+                }
+        });
+    });
      $("#inputRut").keyup(function() {
     var actual = $(this).val().replace(/^0+/, "");
     if (actual != '' && actual.length > 1) {

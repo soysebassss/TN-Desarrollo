@@ -25,4 +25,25 @@ class Welcome extends CI_Controller {
 		//$this->load->view('footer');
 		//echo "HOAL DESDE EL CONTROLADOR AMIGO";
 	}
+	public function detallesProveedor(){
+	if(isset($_REQUEST['nombre'])){
+		$nombre = $_REQUEST['nombre'];
+		$proveedor = $this->proveedor->findByName($nombre);
+		print_r($proveedor);
+		$datosProveedor = array(
+			'id' => $proveedor->get('pro_id'),
+            'nombre' => $proveedor->get('pro_nombre'),
+            'apellidos'=> $proveedor->get('pro_apelidos'),
+            'rut' => $proveedor->get('pro_rut'),
+            'dv'=> $proveedor->get('pro_dv'),
+            'direccion' => $proveedor->get('pro_direccion'),
+            'comuna'=> $proveedor->get('pro_comuna'),
+            'banco' => $proveedor->get('pro_banco'));
+		print_r($datosProveedor); exit();
+		echo json_encode($datosProveedor);
+ 	}else{
+    echo  "existen campos vacíos";
+
+	}
+	}
 }
