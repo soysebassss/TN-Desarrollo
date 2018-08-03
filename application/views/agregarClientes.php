@@ -32,14 +32,14 @@
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-3 col-9">
+    <div class="form-group col-md-10 col-12">
       <label for="inputRut">RUT</label>
-      <input type="text" value="<?=$cliente->get('cli_rut')?>" name="cliente[cli_rut]"  class="form-control" id="inputRut" placeholder="RUT" required="required">
+      <input type="text" value="<?=$cliente->get('cli_rut')?>" name="cliente[cli_rut]"  class="form-control" id="inputRut" placeholder="RUT" maxlength="12" required="required">
     </div>
-    <div class="form-group col-md-1 col-3">
+    <!--<div class="form-group col-md-1 col-3">
       <label for="inputDv">DV</label>
       <input type="text" value="<?=$cliente->get('cli_dv')?>" name="cliente[cli_dv]"  class="form-control" id="inputDv" placeholder="DV" required="required">
-    </div>
+    </div>-->
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">

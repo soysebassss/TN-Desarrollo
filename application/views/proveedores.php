@@ -35,7 +35,7 @@
       ?>      
     <tr>
       <th scope="row"><?php echo $proveedor['pro_id'];?></th>
-      <td><?php echo $proveedor['pro_rut'].'-'.$proveedor['pro_dv'];?></td>
+      <td><?php echo $proveedor['pro_rut'];?></td>
       <td><?php echo $proveedor['pro_nombre'];?></td>
       <td><?php echo $proveedor['pro_apellidos'];?></td>
       <td><?php echo $proveedor['pro_direccion'];?></td>
