@@ -1,28 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Trabajo_model extends CI_Model {
+class Horas_model extends CI_Model {
+//las mismas columnas de la base de datos
+        private $_columns = array(
+                'hor_id'=>0,
+                'hor_valorHoraSub'=>0,
+                'hor_horasTrabajadas'=>0,
+                'hor_valorHoraHombre'=>0,
+                'hor_totalHoras'=> 0 ,
+                'hor_tra_id' => 0
 
-private $_columns = array(
-		'tra_id' => 0,
-		'tra_nombre' => 0,
-		'tra_cantidad' => 0,
-		'tra_precioUnitario' => 0,
-		'tra_medida' => 0,
-		'tra_metrosLineales' => 0,
-                'tra_metrosTotalRollo' => 0,
-		'tra_valorRollo' => 0,
-                'tra_totalTintasCC' => 0,
-                'tra_valorTintas' => 0,
-                'tra_ccUtilizados' => 0,
-                'tra_materiaPrima' => 0,
-		'tra_cli_id' => 0
-	);
-	protected static $_table = 'Trabajo';
+        );
+        protected static $_table = 'Horas';
 
-	public function __construct(){
-	}
-	 public function findAll($where = array()) {
+        public function __construct(){
+
+        }
+        public function findAll($where = array()) {
                 $this->load->database();
                 $result = null;
                 $res    = $this->db->get_where(self::$_table , $where);
@@ -35,11 +30,12 @@ private $_columns = array(
         }
         public function getRequired() {
                 $requiredFields = array(
+
                 );
                 return $requiredFields;
         }
         public function isNew() {
-                return $this->_columns['tra_id'] == 0;
+                return $this->_columns['hor_id'] == 0;
         }
         public function validate() {
                 $emptyCollumn = array();
@@ -61,7 +57,7 @@ private $_columns = array(
         public function findById($id = null) {
                 $id = intval($id);
                 $this->load->database();
-                $res    = $this->db->get_where(self::$_table, array('tra_id' => $id));
+                $res    = $this->db->get_where(self::$_table, array('hor_id' => $id));
                 $result = null;
                 if ($res->num_rows() == 1) {
                         $result = $this->create($res->row_object());
@@ -73,19 +69,19 @@ private $_columns = array(
         }
 
         public function create($row) {
-                $trabajo = new Trabajo_model();
-                $trabajo->setColumns($row);
-                return $trabajo;
+                $horas = new Horas_model();
+                $horas->setColumns($row);
+                return $horas;
         }
 
         public function save() {
                 try {
                         $this->load->database();
-                        if ($this->_columns['tra_id'] == 0 || is_null($this->_columns['tra_id'])) {
+                        if ($this->_columns['hor_id'] == 0 || is_null($this->_columns['hor_id'])) {
                                 $this->db->insert(self::$_table, $this->_columns);
-                                $this->_columns['tra_id'] = $this->db->insert_id();
+                                $this->_columns['hor_id'] = $this->db->insert_id();
                         } else {
-                                $this->db->where('tra_id', $this->_columns['tra_id']);
+                                $this->db->where('hor_id', $this->_columns['hor_id']);
                                 $this->db->update(self::$_table, $this->_columns);
                         }
                 } catch (Exception $e) {
@@ -98,6 +94,9 @@ private $_columns = array(
         public function toArray() {
                 return get_object_vars($this);
         }
+	
 
 }
-?>
+
+/* End of file Horas_model.php */
+/* Location: ./application/models/Horas_model.php */

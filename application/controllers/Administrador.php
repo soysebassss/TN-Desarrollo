@@ -152,26 +152,67 @@ class Administrador extends CI_Controller {
 	}
 	}
 	public function principal(){
-		echo 'DATOS CLIENTE<br>';
-		var_dump($_REQUEST['cliente']);
-		echo '<br>';
-		echo 'DATOS PROVEEDOR<br>';
-		var_dump($_REQUEST['proveedor']);
-		echo '<br>';
-		echo 'DATOS TRABAJO<br>';
-		var_dump($_REQUEST['trabajo']);
+		$this->load->model('Material_model');
+		$this->load->model('CostoFijo_model');
+		$this->load->model('Factura_model');
+		$this->load->model('Trabajo_model');
+		$this->load->model('Compra_model');
+		$this->load->model('Horas_model');
+		$this->load->model('CostoVariable_model');
+		$this->load->model('FormaPago_model');
+		$datosTrabajo = $_REQUEST['trabajo'];
+		$trabajo = $this->Trabajo_model->create($datosTrabajo[0]);
+		$camposFaltantes = $trabajo->validate($trabajo);
+		if (count($camposFaltantes) == 0) {
+			$trabajo->save($datosTrabajo[0]);
+			/*
+			for($i=1;$i<=3;$i++){
+				if (isset($datosTrabajo[$i])) {
+					$trabajoAgregado = $this->Trabajo_model->create($datosTrabajo[$i]);
+					$camposFaltantesTrabajo = $trabajoAgregado->validate($trabajoAgregado);
+					if (count($camposFaltantesTrabajo) == 0) {
+						$trabajoAgregado->save($datosTrabajo[$i]);
+					}else{
+
+					}
+				}
+			}
+			*/
+			$datosFormaPago = $_REQUEST['formaPago'];
+			$formaPago = $this->FormaPago_model->create($datosFormaPago);
+			$camposFaltantesFormaPago = $formaPago->validate($formaPago);
+			if (count($camposFaltantesFormaPago) == 0) {
+				$formaPago->save($datosFormaPago);
+				$datosCostosVariables = $_REQUEST['costos'];
+				$datosCostosFijos = $_REQUEST['costosFijos'];
+				$costoVariable = $this->CostoVariable_model->create($datosCostosVariables);
+				$camposFaltantesCostosVariables = $costoVariable->validate($costoVariable);
+				$costoFijo = $this->CostoFijo_model->create($datosCostosFijos[0]);
+				$camposFaltantesCostosFijos = $costoFijo->validate($costoFijo);
+				if (count($camposFaltantesCostosVariables) == 0 && count($camposFaltantesCostosFijos) == 0) {
+					$costoPapelFormulario = $datosCostosVariables['cos_papel'];
+					$costoTintaFormulario = $datosCostosVariables['cos_tinta'];
+					$costoPapel = explode('$ ', $costoPapelFormulario);
+					$costoTinta = explode('$ ', $costoTintaFormulario);
+					$costoVariable->set('cos_papel',$costoPapel[1]);
+					$costoVariable->set('cos_tinta', $costoTinta[1]);
+					$costoFijo->save($datosCostosFijos);
+					$costoVariable->save();
+					exit();
+					$data = array();
+					$data['factura'] = $_REQUEST['factura'];
+					$data['compra'] = $_REQUEST['compra'];
+					redirect('Administrador/principalDos','refresh',$data);
+				}else{
+					echo 'todo mal';
+				}
+			}
+		}
+	}
+	public function principalDos(){
 		echo 'DATOS TRABAJO<br>';
 		echo 'DATOS COMPRA<br>';
-		var_dump($_REQUEST['compra']);
-		echo '<br>';
-		echo 'DATOS HORAS<br>';
-		var_dump($_REQUEST['horas']);
-		echo '<br>';
-		echo 'DATOS FORMA<br>';
-		var_dump($_REQUEST['formaPago']);
-		echo '<br>';
-		echo 'DATOS FACTURA<br>';
-		var_dump($_REQUEST['factura']);
+		var_dump($compra);
 	}
 	public function eliminarCliente($id = null){
 		if(!is_null($id) && is_numeric($id)){

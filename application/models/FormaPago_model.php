@@ -9,7 +9,7 @@ class FormaPago_model extends CI_Model {
 		'for_numero' => 0,
 		'for_tipo' => 0
 	);
-	protected static $_table = 'Proveedor';
+	protected static $_table = 'FormaPago';
 
 	public function __construct(){
 	}
@@ -70,13 +70,13 @@ class FormaPago_model extends CI_Model {
    public function get($attr) {
       return $this->_columns[$attr];
    }
-   /*
+   
    public function create($row) {
-      $proveedor = new Proveedor_model();
-      $proveedor->setColumns($row);
-      return $proveedor;
+      $formaPago = new FormaPago_model();
+      $formaPago->setColumns($row);
+      return $formaPago;
    }
-   */
+   
    public function save() {
       try {
          $this->load->database();
@@ -97,14 +97,6 @@ class FormaPago_model extends CI_Model {
    
    public function toArray() {
       return get_object_vars($this);
-   }
-
-   public function create($row){
-      $formapago =  new Factura_model();
-      foreach ($row as $key => $value){
-         $formapago->_columns[$key] = $value;
-      }
-      return $formapago;
    }
 
    public function insert(){

@@ -196,8 +196,7 @@ CREATE TABLE `trabajo` (
   `tra_valorTintas` int(11) NOT NULL,
   `tra_ccUtilizados` int(11) NOT NULL,
   `tra_materiaPrima` int(11) NOT NULL,
-  `tra_cli_id` int(11) NOT NULL,
-  `tra_mat_id` int(11) NOT NULL
+  `tra_cli_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

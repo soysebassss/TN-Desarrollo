@@ -62,9 +62,9 @@ private $_columns = array(
         }
 
         public function create($row) {
-                $costoFijo = new CostoFijo_model();
-                $costoFijo->setColumns($row);
-                return $costoFijo;
+                $costoVariable = new CostoVariable_model();
+                $costoVariable->setColumns($row);
+                return $costoVariable;
         }
 
         public function save() {
