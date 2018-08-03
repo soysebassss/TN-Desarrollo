@@ -121,28 +121,28 @@
     <div id="CostosVariables" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6">
-          <label style="color: black;">Valor Hora</label><br><input type="number"  class="form-control" id="valorHora" placeholder="Horas Sub-contratación.." name="horas[hor_valorHorasSub]" required>
+          <label style="color: black;">Valor Hora</label><br><input type="number"  class="form-control" id="valorHora" placeholder="Horas Sub-contratación.." name="horasTrabajo[hor_valorHorasSub]" required>
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">Horas Trabajadas</label><br><input type="number"  class="form-control" id="totalHoras" placeholder="Horas Trabajadas.." name="horas[hor_horasTrabajadas]" required>
+          <label style="color: black;">Horas Trabajadas</label><br><input type="number"  class="form-control" id="totalHoras" placeholder="Horas Trabajadas.." name="horasTrabajo[hor_horasTrabajadas]" required>
         </div>
       </div><br>
       <div class="row">
         <div class="col-md-12 col-12">
-          <label style="color: black;">Sub-Contratación</label><br><input type="text"  class="form-control cosVar" id="totalSub" placeholder="Total Sub-Contratación.." name="horas[hor_totalHorasSub]" readonly required>
+          <label style="color: black;">Sub-Contratación</label><br><input type="text"  class="form-control cosVar" id="totalSub" placeholder="Total Sub-Contratación.." name=" " readonly required>
         </div>
       </div><br>
       <div class="row">
         <div class="col-md-6 col-6">
-          <label style="color: black;">Valor Hora</label><br><input type="number"  class="form-control" id="valorHoraHom" placeholder="Valor Hora Hombre.." name="horas[hor_valorHorasHombre]" required>
+          <label style="color: black;">Valor Hora</label><br><input type="number"  class="form-control" id="valorHoraHom" placeholder="Valor Hora Hombre.." name="horasTrabajo[hor_valorHoraHombre]" required>
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">Horas Hombre</label><br><input type="number"  class="form-control getDataVar" id="totalHoraHom" placeholder="Horas Hombre.." name="horas[hor_horasTrabajadasHomb]" required>
+          <label style="color: black;">Horas Hombre</label><br><input type="number"  class="form-control getDataVar" id="totalHoraHom" placeholder="Horas Hombre.." name="horasTrabajo[hor_totalHoras]" required>
         </div>
       </div><br>
       <div class="row">
         <div class="col-md-12 col-12">
-          <label style="color: black;">Valor Horas Hombre</label><br><input type="text"  class="form-control cosVar" id="totalHomb" placeholder="Total Horas Hombre.." name="horas[hor_totalHorasHomb]" readonly required>
+          <label style="color: black;">Valor Horas Hombre</label><br><input type="text"  class="form-control cosVar" id="totalHomb" placeholder="Total Horas Hombre.." name="" readonly required>
         </div>
       </div><br>
       <div class="row">

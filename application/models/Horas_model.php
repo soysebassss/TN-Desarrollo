@@ -5,7 +5,7 @@ class Horas_model extends CI_Model {
 //las mismas columnas de la base de datos
         private $_columns = array(
                 'hor_id'=>0,
-                'hor_valorHoraSub'=>0,
+                'hor_valorHorasSub'=>0,
                 'hor_horasTrabajadas'=>0,
                 'hor_valorHoraHombre'=>0,
                 'hor_totalHoras'=> 0 ,

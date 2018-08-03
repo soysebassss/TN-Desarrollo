@@ -166,6 +166,13 @@ class Administrador extends CI_Controller {
 		$camposFaltantes = $trabajo->validate($trabajo);
 		if (count($camposFaltantes) == 0) {
 			$trabajo->save($datosTrabajo[0]);
+			$idTrabajo = $trabajo->db->insert_id();
+			$datosHoras = $_REQUEST['horasTrabajo'];
+			$horas = $this->Horas_model->create($datosHoras);
+			$camposFaltantesHoras = $horas->validate($horas);
+			if (count($camposFaltantesHoras) == 0) {
+				$horas->save($horas);
+			}
 			/*
 			for($i=1;$i<=3;$i++){
 				if (isset($datosTrabajo[$i])) {
@@ -235,8 +242,6 @@ class Administrador extends CI_Controller {
 		echo 'DATOS FACTURA TOTAL<br>';
 		$arrayDos = explode(";", $_GET['valorDos']);
 		$arrayDosFac = explode(";", $_GET['formaFc']);
-		print_r($arrayDos);
-		print_r($arrayDosFac);
 		$x['fac_numero'] = $arrayDos[5];
 		$x['fac_valorNeto'] = $arrayDos[2];
 		$x['fac_iva'] = $arrayDos[3];
@@ -245,39 +250,21 @@ class Administrador extends CI_Controller {
 		$x['fac_descuento'] = $arrayDos[1];
 		$x['fac_total'] = $arrayDos[4];
 		$factura = $this->facturas->create($x);
-		$factura->set('fac_numero',$x['fac_numero']);
-		$factura->set('fac_valorNeto',$x['fac_valorNeto']);
-		$factura->set('fac_iva',$x['fac_iva']);
-		$factura->set('fac_glosa',$x['fac_glosa']);
-		$factura->set('fac_recargo',$x['fac_recargo']);
-		$factura->set('fac_descuento',$x['fac_descuento']);
-		$factura->set('fac_total',$x['fac_total']);
 		$factura->set('fac_for_pago',$_GET['idFact']);
-		
-		echo '<br><br>DATOS COMPRA PROVEEDOR<br><br>';
 		$array = explode(";", $_GET['valor']);
 		$prov = explode(";", $_GET['bancoProv']);
 		$provForm = explode(";", $_GET['formaPro']);
-		print_r($array);
-		print_r($prov);
-		print_r($provForm);
 		$y['com_codigoProducto'] =$array[1];
 		$y['com_iva'] =$array[3];
 		$y['com_valorTotal'] =$array[0];
 		$y['com_numeroFactura'] =$array[4];
 		$y['com_recargo'] =$array[5];
-		$compra = $this->compras->create($y);
-		$compra->set('com_codigoProducto',$y['com_codigoProducto']);
-		$compra->set('com_iva',$y['com_iva']);
-		$compra->set('com_valorTotal',$y['com_valorTotal']);
-		$compra->set('com_numeroFactura',$y['com_numeroFactura']);
-		$compra->set('com_recargo',$y['com_recargo']);
+		$compra = $this->compras->create($y);;
 		$compra->set('com_for_id',$_GET['idForm']);
 		$compra->set('com_pro_id',$_GET['idProv']);
 		$factura->save();
-		$compra->save();
-		 
-
+		$compra->save();		 
+		redirect('Administrador','refresh');
 		//var_dump($compra);
 	}
 	public function eliminarCliente($id = null){
@@ -287,6 +274,25 @@ class Administrador extends CI_Controller {
 			
 		}else{
 
+		}
+	}
+
+	public function trabajosCliente(){
+				// $this->load->view('prueba');
+		$data = array();
+		$this->load->model('Cliente_model');
+		$data['dataClientes'] = $this->Cliente_model->findAll();
+		if (isset($_POST['idCliente'])) {			
+			$this->load->model('Trabajo_model');
+			$id = $_POST['idCliente'];
+			$data ['dataTrabajos'] = $this->Trabajo_model->findByIdCliente($id); 	
+			$this->load->view('header');
+			$this->load->view('trabajos' ,$data);		
+			$this->load->view('footer');
+		}else{
+			$this->load->view('header');
+			$this->load->view('trabajos',$data);		
+			$this->load->view('footer');
 		}
 	}
 	public function detallesCliente(){

@@ -8,10 +8,12 @@ class FormaPago_model extends CI_Model {
 		'for_fecha' => '',
 		'for_numero' => 0,
 		'for_tipo' => 1,
+      'for_banco' => '',
       'for_clave' => 1
 	);
    private $_columnsFac = array(
       'for_id' => 0,
+      'for_abono' => 0,
       'for_fecha' => '',
       'for_numero' => 0,
       'for_tipo' => 2,
