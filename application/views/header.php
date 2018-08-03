@@ -413,6 +413,7 @@
                   $(".telefonoCliente").val(response.telefono);
                   $(".correoCliente").val(response.correo);
                    $(".idCliente").val(response['id']);
+                    $(".delayName").text("");
                        // $("#resultado").html(response["rut"]);
                 },
               error: function(jqXHR, textStatus, errorThrown){
@@ -422,7 +423,8 @@
                   $(".telefonoCliente").val("-");
                   $(".correoCliente").val("-@X.cl");
                   $(".idCliente").val("0");
-                   
+                 $(".delayName").text("¡No hay coincidencias!");
+                  
                 }
         });
     });

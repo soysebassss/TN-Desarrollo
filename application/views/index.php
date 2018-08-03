@@ -12,7 +12,8 @@
       <div class="row">
       <div class="col-md-6 col-6" style="text-align: left;">
         <label style="color: black;">Nombre Fantasia</label><br><input type="text" class="form-control nameFantasia" placeholder="Nombre.." name="cliente['cli_nombreFantasia']" required>
-         <input type="text"   class="idCliente" name="">
+        <div class="delayName"></div>
+         <input type="text" hidden class="idCliente" name="">
         <!--<input type="button" class="nameFantasia" value="ya" name=""> -->
         <!--<button class="nameFantasia">YA</button>-->
       </div> 
