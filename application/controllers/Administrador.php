@@ -13,6 +13,7 @@ class Administrador extends CI_Controller {
 			$this->load->model('Proveedor_model', 'proveedor', true);
 			$this->load->model('Factura_model', 'facturas', true);
 			$this->load->model('FormaPago_model', 'formapagos', true);
+			$this->load->model('Compra_model', 'compras', true);
 		}else{
 	
 			redirect('/','refresh');
@@ -179,11 +180,24 @@ class Administrador extends CI_Controller {
 			}
 			*/
 			$datosFormaPago = $_REQUEST['formaPago'];
+			$datosFormaPagoFactura = $_POST['formaPagoFac'];
+			$prova =  $_POST['proveedor'];
+			$idProv = $prova['pro_id'];
+			//print_r($prova);
+			//echo $prova['pro_id'];
 			$formaPago = $this->FormaPago_model->create($datosFormaPago);
+			$formaPagoFac = $this->FormaPago_model->createFac($datosFormaPagoFactura);
 			$camposFaltantesFormaPago = $formaPago->validate($formaPago);
+			$camposFaltantesFormaPagoFac = $formaPagoFac->validateFac($formaPagoFac);
+			if (count($camposFaltantesFormaPagoFac) == 0) {
+				$formaPagoFac->saveFac($datosFormaPagoFactura);
+				$ultimoIdFormPagoFac = $formaPagoFac->db->insert_id();
+				echo "ultimo id fac: ".$ultimoIdFormPagoFac;
+			}
 			if (count($camposFaltantesFormaPago) == 0) {
 				$formaPago->save($datosFormaPago);
 				$ultimoIdFormPago = $formaPago->db->insert_id();
+				echo "ultimo id pro: ".$ultimoIdFormPago;			 
 				$datosCostosVariables = $_REQUEST['costos'];
 				$datosCostosFijos = $_REQUEST['costosFijos'];
 				$costoVariable = $this->CostoVariable_model->create($datosCostosVariables);
@@ -209,7 +223,7 @@ class Administrador extends CI_Controller {
 					$factura = implode(";", $_REQUEST['factura']);
 					$forma = implode(";",$_POST['formaPago']);
 					$formaFac = implode(";",$_POST['formaPagoFac']);
-					 redirect('Administrador/principalDos/?valor='.$compra."&valorDos=".$factura."&bancoProv=".$bancoProv."&formaPro=".$forma."&formaFc=".$formaFac."&idForm=".$ultimoIdFormPago,'refresh');
+					 redirect('Administrador/principalDos/?valor='.$compra."&valorDos=".$factura."&bancoProv=".$bancoProv."&formaPro=".$forma."&formaFc=".$formaFac."&idForm=".$ultimoIdFormPago."&idProv=".$idProv."&idFact=".$ultimoIdFormPagoFac,'refresh');
 				}else{
 					echo 'todo mal';
 				}
@@ -223,13 +237,23 @@ class Administrador extends CI_Controller {
 		$arrayDosFac = explode(";", $_GET['formaFc']);
 		print_r($arrayDos);
 		print_r($arrayDosFac);
-		$factura->set('fac_numero',$arrayDos[5]);
-		$factura->set('fac_valorNeto',$arrayDos[2]);
-		$factura->set('fac_iva',$arrayDos[3]);
-		$factura->set('fac_glosa',$arrayDos[6]);
-		$factura->set('fac_recargo',$arrayDos[0]);
-		$factura->set('fac_descuento',$arrayDos[1]);
-		$factura->set('fac_total',$arrayDos[4]);
+		$x['fac_numero'] = $arrayDos[5];
+		$x['fac_valorNeto'] = $arrayDos[2];
+		$x['fac_iva'] = $arrayDos[3];
+		$x['fac_glosa'] = $arrayDos[6];
+		$x['fac_recargo'] = $arrayDos[0];
+		$x['fac_descuento'] = $arrayDos[1];
+		$x['fac_total'] = $arrayDos[4];
+		$factura = $this->facturas->create($x);
+		$factura->set('fac_numero',$x['fac_numero']);
+		$factura->set('fac_valorNeto',$x['fac_valorNeto']);
+		$factura->set('fac_iva',$x['fac_iva']);
+		$factura->set('fac_glosa',$x['fac_glosa']);
+		$factura->set('fac_recargo',$x['fac_recargo']);
+		$factura->set('fac_descuento',$x['fac_descuento']);
+		$factura->set('fac_total',$x['fac_total']);
+		$factura->set('fac_for_pago',$_GET['idFact']);
+		
 		echo '<br><br>DATOS COMPRA PROVEEDOR<br><br>';
 		$array = explode(";", $_GET['valor']);
 		$prov = explode(";", $_GET['bancoProv']);
@@ -237,12 +261,21 @@ class Administrador extends CI_Controller {
 		print_r($array);
 		print_r($prov);
 		print_r($provForm);
-		$compra->set('com_codigoProducto',$array[1]);
-		$compra->set('com_iva',$array[3]);
-		$compra->set('com_valorTotal',$array[0]);
-		$compra->set('com_numeroFactura',$array[4]);
-		$compra->set('com_recargo',$array[5]);
+		$y['com_codigoProducto'] =$array[1];
+		$y['com_iva'] =$array[3];
+		$y['com_valorTotal'] =$array[0];
+		$y['com_numeroFactura'] =$array[4];
+		$y['com_recargo'] =$array[5];
+		$compra = $this->compras->create($y);
+		$compra->set('com_codigoProducto',$y['com_codigoProducto']);
+		$compra->set('com_iva',$y['com_iva']);
+		$compra->set('com_valorTotal',$y['com_valorTotal']);
+		$compra->set('com_numeroFactura',$y['com_numeroFactura']);
+		$compra->set('com_recargo',$y['com_recargo']);
 		$compra->set('com_for_id',$_GET['idForm']);
+		$compra->set('com_pro_id',$_GET['idProv']);
+		$factura->save();
+		$compra->save();
 		 
 
 		//var_dump($compra);
