@@ -197,8 +197,8 @@ class Administrador extends CI_Controller {
 					$costoTinta = explode('$ ', $costoTintaFormulario);
 					$costoVariable->set('cos_papel',$costoPapel[1]);
 					$costoVariable->set('cos_tinta', $costoTinta[1]);
-					//$costoFijo->save($datosCostosFijos);
-					//$costoVariable->save();
+					$costoFijo->save($datosCostosFijos);
+					$costoVariable->save();
 					//exit();
 					//$data = array();
 					//$data['factura'] = $_REQUEST['factura'];
