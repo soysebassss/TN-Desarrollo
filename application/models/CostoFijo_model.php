@@ -6,7 +6,9 @@ private $_columns = array(
 		'cos_id' => 0,
 		'cos_valorDespacho' => '',
 		'cos_arriendo' => '',
-		'cos_servicio' => null
+		'cos_servicio' => null,
+                'cos_telefono' => 0,
+                'cos_otro' => 0
 	);
 	protected static $_table = 'CostosFijos';
 

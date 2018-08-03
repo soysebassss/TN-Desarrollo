@@ -1,27 +1,17 @@
 <?php
-class Cliente_model extends CI_Model {
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-        //las mismas columnas de la base de datos
-        private $_columns = array(
-                'cli_id'=>0,
-                'cli_nombre'=>'',
-                'cli_apellidos'=>'',
-                'cli_rut'=>'',
-                'cli_dv'=>'',
-                'cli_direccion'=>'',
-                'cli_telefono'=>'',
-                'cli_giro'=>'',
-                'cli_nombreFantasia'=>'',
-                'cli_estado'=>0,
-                'cli_correo'=>''
+class CostoVariable_model extends CI_Model {
+private $_columns = array(
+		'cos_varId' => 0,
+		'cos_papel' => 0,
+		'cos_tinta' => 0
+	);
+	protected static $_table = 'CostosVariables';
 
-        );
-        protected static $_table = 'Cliente';
-
-        public function __construct(){
-
-        }
-        public function findAll($where = array()) {
+	public function __construct(){
+	}
+	 public function findAll($where = array()) {
                 $this->load->database();
                 $result = null;
                 $res    = $this->db->get_where(self::$_table , $where);
@@ -32,32 +22,13 @@ class Cliente_model extends CI_Model {
                 }
                 return $result;
         }
-        public function findByName($nombre){
-        $this->load->database();
-        $query = $this->db->where('cli_nombreFantasia',$nombre);
-        $query = $this->db->get('Cliente');
-        $result = null;
-        if ($query->num_rows() > 0) {
-                foreach ($query->result() as $row) {
-                        $result[] = $this->create($row);
-                }
-        }else{
-                $result[] =  "no existen clientes";
-        }
-        return $result;
-        }
         public function getRequired() {
                 $requiredFields = array(
-
                 );
                 return $requiredFields;
         }
         public function isNew() {
-                return $this->_columns['cli_id'] == 0;
-        }
-        // metodo para obtener la comuna del cliente
-        public function getComuna() {
-                return self::$comuna[$this->_columns['cli_comuna']];
+                return $this->_columns['cos_varId'] == 0;
         }
         public function validate() {
                 $emptyCollumn = array();
@@ -79,7 +50,7 @@ class Cliente_model extends CI_Model {
         public function findById($id = null) {
                 $id = intval($id);
                 $this->load->database();
-                $res    = $this->db->get_where(self::$_table, array('cli_id' => $id));
+                $res    = $this->db->get_where(self::$_table, array('cos_varId' => $id));
                 $result = null;
                 if ($res->num_rows() == 1) {
                         $result = $this->create($res->row_object());
@@ -91,19 +62,19 @@ class Cliente_model extends CI_Model {
         }
 
         public function create($row) {
-                $cliente = new Cliente_model();
-                $cliente->setColumns($row);
-                return $cliente;
+                $costoFijo = new CostoFijo_model();
+                $costoFijo->setColumns($row);
+                return $costoFijo;
         }
 
         public function save() {
                 try {
                         $this->load->database();
-                        if ($this->_columns['cli_id'] == 0 || is_null($this->_columns['cli_id'])) {
+                        if ($this->_columns['cos_varId'] == 0 || is_null($this->_columns['cos_varId'])) {
                                 $this->db->insert(self::$_table, $this->_columns);
-                                $this->_columns['cli_id'] = $this->db->insert_id();
+                                $this->_columns['cos_varId'] = $this->db->insert_id();
                         } else {
-                                $this->db->where('cli_id', $this->_columns['cli_id']);
+                                $this->db->where('cos_varId', $this->_columns['cos_varId']);
                                 $this->db->update(self::$_table, $this->_columns);
                         }
                 } catch (Exception $e) {

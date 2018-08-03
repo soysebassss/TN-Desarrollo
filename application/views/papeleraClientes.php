@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-6">
       <a href="<?=site_url('Administrador/verClientes')?>">
-      <button class="btn btn-outline-primary pull-left" style="cursor:pointer"><i class="fa fa-plus"></i> Volver </button>
+      <button class="btn btn-outline-primary pull-left" style="cursor:pointer"><i class="fa fa-arrow-left"></i> Volver </button>
       </a>
       </div>
       <div class="col-md-6">
