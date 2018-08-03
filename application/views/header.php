@@ -511,10 +511,10 @@ user-select: none;
                     <a href="<?= site_url('Administrador/verRevista')?>">Revista</a>
                   </li>
                   <li><a href="<?= site_url('Administrador/verSemaforo')?>">Semaforo</a></li>
-                  <li><button id="verClientes" type="button">verClientes</button></li>
-                  <li><a href="<?= site_url('Administrador/verEstadisticas')?>">Estadisticas</a></li>
-                  <li><a href="<?=site_url('Administrador/verClientes')?>">Clientes / A-Z</a></li>
-                  <li><a href="<?=site_url('Administrador/verProveedores')?>">Proveedores / A-Z</a></li>
+                  <li><a href="<?= site_url('Administrador/trabajosCliente');?>">Trabajos realizados</a></li>
+                  <li><a href="<?= site_url('Administrador/verEstadisticas');?>">Estadisticas</a></li>
+                  <li><a href="<?=site_url('Administrador/verClientes');?>">Clientes / A-Z</a></li>
+                  <li><a href="<?=site_url('Administrador/verProveedores');?>">Proveedores / A-Z</a></li>
                   <li><a href="<?=site_url('Login/logout')?>">Desconectar</a></li>
                 </ul>
               </nav>
@@ -585,15 +585,17 @@ user-select: none;
         </div>
         <ul class="page_menu_nav menu_mm">
           <li class="page_menu_item menu_mm">
-            <a href="<?=site_url('Welcome/index')?>">Servicios</a>
+            <a href="<?=site_url('Administrador/index')?>">Servicios</a>
           </li>
           <li class="page_menu_item menu_mm">
-            <a href="<?=site_url('Welcome/verRevista')?>">Revista</a>
+            <a href="<?=site_url('Administrador/verRevista')?>">Revista</a>
           </li>
-          <li class="page_menu_item menu_mm"><a href="<?= site_url('Welcome/verSemaforo')?>">Semaforo<i class="fa fa-angle-down"></i></a></li>
-          <li class="page_menu_item menu_mm"><a href="<?= site_url('Welcome/verEstadisticas')?>">Estadisticas<i class="fa fa-angle-down"></i></a></li>
-          <li class="page_menu_item menu_mm"><a href="<?= site_url('Welcome/verClientes')?>">Clientes / A-Z<i class="fa fa-angle-down"></i></a></li>
-          <li class="page_menu_item menu_mm"><a href="<?=site_url('#')?>">Desconectar<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Administrador/verSemaforo')?>">Semaforo<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Administrador/verEstadisticas')?>">Estadisticas<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Administrador/verClientes')?>">Clientes / A-Z<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Administrador/verProveedores')?>">Proveedores / A-Z<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?= site_url('Administrador/trabajosCliente')?>">Trabajos Realizados<i class="fa fa-angle-down"></i></a></li>
+          <li class="page_menu_item menu_mm"><a href="<?=site_url('Login/logout')?>">Desconectar<i class="fa fa-angle-down"></i></a></li>
         </ul>
       </div>
     </div>

@@ -33,6 +33,17 @@ private $_columns = array(
                 }
                 return $result;
         }
+         public function findByIdCliente($id) {
+        $this->load->database();
+        $result = null;
+        $res    = $this->db->get_where(self::$_table , array('tra_cli_id' => $id));
+        if ($res->num_rows() > 0) {
+                foreach ($res->result() as $value) {
+                        $result[] = $this->create($value);
+                }
+        }
+        return $result;
+        }
         public function getRequired() {
                 $requiredFields = array(
                 );

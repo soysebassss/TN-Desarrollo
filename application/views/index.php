@@ -43,7 +43,7 @@
       </div>
     </div>
     <br>
-    <input type="text"  class="totalTrab" name="totalTrab">
+    <input type="text"  class="totalTrab" name="totalTrab" hidden>
     <div id="service" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6" style="text-align: left;">
@@ -117,7 +117,7 @@
       </div>
     </div>
     <br>
-    <input type="text" class="costosVariablesTotal" name="costosVariablesTotal">
+    <input type="text" class="costosVariablesTotal" name="costosVariablesTotal" hidden>
     <div id="CostosVariables" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6">
@@ -162,7 +162,7 @@
       </div>
     </div>
     <br>
-    <input type="text"  class="costosTotalFijo" name="costosTotalFijo">
+    <input type="text"  class="costosTotalFijo" name="costosTotalFijo" hidden>
     <div id="CostosFijos" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6">
@@ -199,7 +199,7 @@
       </div>
     </div>
     <br>
-   <input type="text" class="totalProveedor" name="compra[com_valorTotal]">
+   <input type="text" class="totalProveedor" name="compra[com_valorTotal]" hidden>
     <div id="detProveedor" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-3 col-6">
