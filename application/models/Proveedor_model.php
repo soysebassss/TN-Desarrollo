@@ -44,11 +44,6 @@ class Proveedor_model extends CI_Model {
         }
         public function getRequired() {
                 $requiredFields = array(
-                        'pro_nombre',
-                        'pro_apellidos',
-                        'pro_rut',
-                        'pro_dv',
-                        'pro_banco',
                 );
                 return $requiredFields;
         }

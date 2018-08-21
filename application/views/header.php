@@ -283,7 +283,7 @@
         valorUnitario= parseInt($( this ).val());
       });
         totalTrabajo += parseInt(valorUnitario*cantidadTrabajo);
-        alert("Cantidad: "+cantidadTrabajo+" valorUnitario: "+valorUnitario+" totalTrabajo: "+totalTrabajo);
+        //alert("Cantidad: "+cantidadTrabajo+" valorUnitario: "+valorUnitario+" totalTrabajo: "+totalTrabajo);
         $(".totalTrab").val(totalTrabajo);
         cantidadTrabajo=0;
         valorUnitario=0;

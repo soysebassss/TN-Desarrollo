@@ -10,11 +10,11 @@
     <form method="post" action="<?=site_url('Administrador/trabajosCliente');?>">
     <div class="row">
       <div class="col sm 6">
+      <select name="idCliente" class="form-control">
         <?php foreach($dataClientes as $key => $clientes){
           $clientes = $clientes->toArray();
           $cliente = $clientes['_columns'];
           ?>
-      <select name="idCliente" class="form-control">
           <option value='<?php echo $cliente['cli_id'] ;?>'><?php echo $cliente['cli_nombre'];?></option>
         <?php }?>
       </select>       
