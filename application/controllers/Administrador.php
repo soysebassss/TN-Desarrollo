@@ -162,6 +162,20 @@ class Administrador extends CI_Controller {
 		$this->load->model('CostoVariable_model');
 		$this->load->model('FormaPago_model');
 		$datosTrabajo = $_REQUEST['trabajo'];
+		
+		
+		for ($i=0; $i <= 10 ; $i++) { 
+			
+			if (isset($datosTrabajo[$i])) {
+				echo "NUM: ".$i." ";
+			print_r($datosTrabajo[$i]);
+			echo "<br>";
+			$trabajo = $this->Trabajo_model->create($datosTrabajo[$i]);
+		$camposFaltantes = $trabajo->validate($trabajo);
+		$trabajo->save($datosTrabajo[$i]);
+			}
+		}
+		exit();
 		$trabajo = $this->Trabajo_model->create($datosTrabajo[0]);
 		$camposFaltantes = $trabajo->validate($trabajo);
 		if (count($camposFaltantes) == 0) {
