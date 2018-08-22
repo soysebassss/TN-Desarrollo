@@ -52,7 +52,7 @@
     <tr>
       <th scope="row"><?php echo $cliente['cli_id'];?></th>
       <td><?php echo $cliente['cli_nombreFantasia'];?></td>
-      <td><?php echo $cliente['cli_rut'].'-'.$cliente['cli_dv'];?></td>
+      <td><?php echo $cliente['cli_rut']?></td>
       <td><?php echo $cliente['cli_nombre'];?></td>
       <td><?php echo $cliente['cli_apellidos'];?></td>
       <td><?php echo $cliente['cli_correo'];?></td>
