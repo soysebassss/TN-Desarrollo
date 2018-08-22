@@ -10,16 +10,15 @@
 		//Do your magic here
 	}
 	public function detallesCliente($nombre){
-		 
-			$cliente = $this->cliente->findByName($nombre);
+		 	$newName = strtolower($nombre);
+			$cliente = $this->cliente->findByName($newName);
 			foreach($cliente as $key){
 			   //print_r($key->get('cli_id'));
-			if ($key->get('cli_nombreFantasia') == $nombre) {
+			if ($key->get('cli_nombreFantasia') == $newName ) {
 				  $datosCliente['id'] = $key->get('cli_id');
 			$datosCliente['nombre'] = $key->get('cli_nombre');
 			$datosCliente['apellidos'] = $key->get('cli_apellidos');
 			$datosCliente['rut'] = $key->get('cli_rut');
-			$datosCliente['dv'] = $key->get('cli_dv');
 			$datosCliente['direccion'] = $key->get('cli_direccion');
 			$datosCliente['nombreFantasia'] = $key->get('cli_nombreFantasia');
 			$datosCliente['estado'] = $key->get('cli_estado');

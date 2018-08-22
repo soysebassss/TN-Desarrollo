@@ -166,18 +166,18 @@
     <div id="CostosFijos" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-1</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Arriendo.." name="costosFijos[0][cos_arriendo]" required>
+          <label style="color: black;">Gasto-1</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_arriendo]" >
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-2</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Servicios Basicos.." name="costosFijos[0][cos_servicio]" required>
+          <label style="color: black;">Gasto-2</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_servicio]" >
         </div>
       </div><br>
       <div class="row">
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-3</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Telefono.." name="costosFijos[0][cos_telefono]" required>
+          <label style="color: black;">Gasto-3</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_telefono]" >
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-4</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Valor Despacho.." name="costosFijos[0][cos_valorDespacho]" required>
+          <label style="color: black;">Gasto-4</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_valorDespacho]" >
         </div>
       </div><br>
       <div id="ServicioAdd">
@@ -247,17 +247,20 @@
           <label style="color: black;">Fecha Doc.</label><br><input type="date"  class="form-control" placeholder="Fecha Documento.." name="formaPago[for_fecha]" required>
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">N° Documento</label><br><input type="text"  class="form-control" placeholder="N° Documento.." name="formaPago[for_numero]" required>
+          <label style="color: black;">N° Documento</label><br><input type="text"  class="form-control checklife" placeholder="N° Documento.." name="formaPago[for_numero]" required>
         </div>
       </div><br>
       <div class="row">
         <div class="col-md-12 col-12">
-          <label style="color: black;">Banco</label><br><input type="text"  class="form-control checklife proveedorBanco" placeholder="Banco.." name="proveedor[pro_banco]" required>
+          <label style="color: black;">Banco</label><br><input type="text"  class="form-control  proveedorBanco" placeholder="Banco.." name="proveedor[pro_banco]" required>
         </div>
       </div><br>
+      <div class="proveedoresExtras" hidden>
+        
+      </div>
       <div class="row" hidden>
         <div class="col-md-12 col-12">
-          <input type="button" class="btn btn-primary" value="añadir Prov." name="">
+          <input type="button" id="addProv" class="btn btn-primary form-control" style="width: 100%; background: #0069d9; text-decoration: none; color: white; cursor:pointer;" value="añadir Prov." name="">
         </div>
       </div><br>
     </div>
@@ -275,7 +278,7 @@
         <div class="col-md-12 col-12" style="text-align: center;">
           <label style="color: black;">Descuentos Cliente</label>
         </div>
-      </div><br>
+      </div>
       <div class="row">
         <div class="col-md-6 col-6" hidden>
           <label style="color: black;">% Recargo</label><br><input type="number"  class="form-control" placeholder="% Recargo.." name="factura[fac_recargo]" value="0" required>
@@ -283,7 +286,7 @@
         <div class="col-md-6 col-6" hidden>
           <label style="color: black;">% Descuento</label><br><input type="number"  class="form-control" placeholder="% Descuento.." name="factura[fac_descuento]" value="0" required>
         </div>
-      </div><br>
+      </div>
       <div class="row">
         <div class="col-md-12 col-12" style="text-align: center;">
           <label style="color: black;">Datos Factura</label>

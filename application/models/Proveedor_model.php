@@ -8,7 +8,6 @@ class Proveedor_model extends CI_Model {
 		'pro_nombre' => '',
 		'pro_apellidos' => '',
 		'pro_rut' => '',
-		'pro_dv' => '',
 		'pro_direccion' => '',
 		'pro_comuna' => '',
 		'pro_banco' => ''

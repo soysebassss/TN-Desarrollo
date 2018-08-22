@@ -7,7 +7,6 @@ class Cliente_model extends CI_Model {
                 'cli_nombre'=>'',
                 'cli_apellidos'=>'',
                 'cli_rut'=>'',
-                'cli_dv'=>'',
                 'cli_direccion'=>'',
                 'cli_telefono'=>'',
                 'cli_giro'=>'',

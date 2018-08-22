@@ -9,7 +9,7 @@
   </div>
 </div><hr>
 
-<form action="<?=site_url('Administrador/registrarProveedor/'.$proveedor->get('pro_id'));?>" method="post">
+<form action="<?=site_url('Administrador/agregarProveedor/'.$proveedor->get('pro_id'));?>" method="post">
   <div class="form-row">
     <input type="hidden" value="<?=$proveedor->get('pro_id')?>" name="proveedor[pro_id]">
     <div class="form-group col-md-4">

@@ -8,14 +8,14 @@ private $_columns = array(
 		'tra_nombre' => 0,
 		'tra_cantidad' => 0,
 		'tra_precioUnitario' => 0,
-		'tra_medida' => 0,
+		'tra_medida' => "",
 		'tra_metrosLineales' => 0,
                 'tra_metrosTotalRollo' => 0,
 		'tra_valorRollo' => 0,
                 'tra_totalTintasCC' => 0,
                 'tra_valorTintas' => 0,
                 'tra_ccUtilizados' => 0,
-                'tra_materiaPrima' => 0,
+                'tra_materiaPrima' => "",
 		'tra_cli_id' => 0
 	);
 	protected static $_table = 'Trabajo';

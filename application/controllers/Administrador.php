@@ -60,7 +60,9 @@ class Administrador extends CI_Controller {
 			$cliente = new Cliente_model();
 		}
 		if(isset($_POST['cliente'])){
+
 			$cliente = $this->cliente->create($_POST['cliente']);
+			$cliente->set('cli_nombreFantasia', strtolower($cliente->get("cli_nombreFantasia")));
 			//$cliente->set('cli_id', $id);
 			$camposFaltantes = $cliente->validate($cliente);
 			if (count($camposFaltantes) == 0) {
@@ -111,6 +113,7 @@ class Administrador extends CI_Controller {
 	if(isset($_POST['proveedor'])){
 		$proveedor = $this->proveedor->create($_POST['proveedor']);
 		//$proveedor->set('cli_id', $id);
+		$proveedor->set('pro_nombre', strtolower($proveedor->get("pro_nombre")));
 		$camposFaltantes = $proveedor->validate($proveedor);
 		if (count($camposFaltantes) == 0) {
 			$proveedor->save();
@@ -139,7 +142,7 @@ class Administrador extends CI_Controller {
 		$this->load->view('estadisticas');
 		$this->load->view('footer');
 	}
-	public function registrarProveedor(){
+	/*public function registrarProveedor(){
 	$dataProveedor = $_POST['proveedor'];
 	$proveedor = $this->proveedor->create($dataProveedor);
 	$camposFaltantes = $proveedor->validate($proveedor);
@@ -151,7 +154,7 @@ class Administrador extends CI_Controller {
 	}else{
 		echo 'Faltan campos';
 	}
-	}
+	}*/
 	public function principal(){
 		$this->load->model('Material_model');
 		$this->load->model('CostoFijo_model');
@@ -164,22 +167,23 @@ class Administrador extends CI_Controller {
 		$datosTrabajo = $_REQUEST['trabajo'];
 		
 		
-		for ($i=0; $i <= 10 ; $i++) { 
+		for ($i=0; $i <= 100 ; $i++) { 
 			
 			if (isset($datosTrabajo[$i])) {
-				echo "NUM: ".$i." ";
-			print_r($datosTrabajo[$i]);
-			echo "<br>";
-			$trabajo = $this->Trabajo_model->create($datosTrabajo[$i]);
-		$camposFaltantes = $trabajo->validate($trabajo);
-		$trabajo->save($datosTrabajo[$i]);
+				//echo "NUM: ".$i." ";
+			 print_r($datosTrabajo[$i]);
+			//echo "<br>";
+				$trabajo = $this->Trabajo_model->create($datosTrabajo[$i]);
+				$camposFaltantes = $trabajo->validate($trabajo);
+				if (count($camposFaltantes) == 0) {
+					$trabajo->save($datosTrabajo[$i]);
+				}
 			}
 		}
-		exit();
-		$trabajo = $this->Trabajo_model->create($datosTrabajo[0]);
-		$camposFaltantes = $trabajo->validate($trabajo);
-		if (count($camposFaltantes) == 0) {
-			$trabajo->save($datosTrabajo[0]);
+	 
+		//$trabajo = $this->Trabajo_model->create($datosTrabajo[0]);
+		//$camposFaltantes = $trabajo->validate($trabajo);
+			//$trabajo->save($datosTrabajo[0]);
 			$idTrabajo = $trabajo->db->insert_id();
 			$datosHoras = $_REQUEST['horasTrabajo'];
 			$horas = $this->Horas_model->create($datosHoras);
@@ -249,7 +253,7 @@ class Administrador extends CI_Controller {
 					echo 'todo mal';
 				}
 			}
-		}
+		
 	}
 	public function principalDos(){
 
