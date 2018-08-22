@@ -166,18 +166,18 @@
     <div id="CostosFijos" style="margin-left: 1%; margin-right: 1%;">
       <div class="row">
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-1</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_arriendo]" >
+          <label style="color: black;">Gasto-1</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_arriendo]" required>
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-2</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_servicio]" >
+          <label style="color: black;">Gasto-2</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_servicio]" required>
         </div>
       </div><br>
       <div class="row">
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-3</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_telefono]" >
+          <label style="color: black;">Gasto-3</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_telefono]" required>
         </div>
         <div class="col-md-6 col-6">
-          <label style="color: black;">Gasto-4</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_valorDespacho]" >
+          <label style="color: black;">Gasto-4</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional.. " name="costosFijos[0][cos_valorDespacho]" required>
         </div>
       </div><br>
       <div id="ServicioAdd">

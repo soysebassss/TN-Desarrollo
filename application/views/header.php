@@ -87,7 +87,7 @@
     $("#addSer").click(function(){
      // alert("Juan");
       contador = contador+1;
-      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional-'+contador+'..." name="costosFijos['+contador+'][cos_otherCos]" ></div></div><br></div>')
+      $("#ServicioAdd").append('<div class="row"><div class="col" style="text-align: left; color: #ED1919;" id="DeleteSer" trip='+contador+'>'+contador+')</div></div><div class="del-'+contador+'"><div class="row "><div class="col"><label style="color: black;">Nuevo-'+contador+'</label><br><input type="number"  class="form-control costosFijosVal" placeholder="Gasto adicional-'+contador+'..." name="costosFijos['+contador+'][cos_otherCos]" required></div></div><br></div>')
     });
     $(document).on('click','#DeleteJob',function(){
       $(this).remove();
