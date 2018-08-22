@@ -1,15 +1,15 @@
-<div class="row justify-content-between">
-	<div class="col-sm-3"><br>
-		<!--Buscador-->
-		<div class="input-group mb-2">
-  		<span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-  		<input id="filtrar" type="text" class="form-control">
-		</div>
-	</div>
-	<div class="col sm-3 offset-sm-6"><br>
-    <form method="post" action="<?=site_url('Administrador/trabajosCliente');?>">
-    <div class="row">
-      <div class="col sm 6">
+<div class="row">
+  <div class="col-md-12 col-12">
+     
+  <form method="post" action="<?=site_url('Administrador/trabajosCliente');?>">
+  <br><br><div class="row">
+   
+     
+      <div class="col-md-4 col-1">
+        
+      </div>
+      <div class="col-md-4 col-6">
+        
       <select name="idCliente" class="form-control">
         <?php foreach($dataClientes as $key => $clientes){
           $clientes = $clientes->toArray();
@@ -17,19 +17,41 @@
           ?>
           <option value='<?php echo $cliente['cli_id'] ;?>'><?php echo $cliente['cli_nombre'];?></option>
         <?php }?>
-      </select>       
+      </select>   
+     
       </div>
-      <div class="col sm 1">
-      <input type="submit" class="btn btn-success" value="Buscar">     
-    </form> 
-      </div>
+      <div class="col-md-4 col-3">
+        <input type="submit" class="btn btn-success" value="Buscar"> 
+      </div> 
+     
+     
+        </div>   
+     </form>     
+     
+  
+ 
+<br> 
+<div class="row">
+  <div  class="col-md-4 col-12">
+    <div class="input-group mb-2">
+      <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+      <input id="filtrar" type="text" class="form-control">
     </div>
-		</a>
-	</div>
+  </div>
+   <div  class="col-md-4  ">
+    
+  </div >
+   <div class="col-md-4 ">
+    
+  </div>
 </div>
 
+    
+
 <!--Tabla con los clientes-->
-<table class="table table-bordered table-responsive" style="color:black;">
+<div class="row">
+  <div class="col-md-12 col-12">
+    <table class="table table-bordered table-responsive" style="color:black; width: ;">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -64,12 +86,14 @@
     <?php endif;?>
  </tbody>
 </table>
+  </div>
+</div>
 
 <script>
 /* Buscador de clientes */
 $(document).ready(function () {
   (function ($) {
-  	$('#filtrar').keyup(function () { 
+    $('#filtrar').keyup(function () { 
       var rex = new RegExp($(this).val(), 'i');
       $('.buscar tr').hide();
       $('.buscar tr').filter(function () {
@@ -79,3 +103,5 @@ $(document).ready(function () {
   }(jQuery)); 
 });
 </script>
+  </div>
+</div>

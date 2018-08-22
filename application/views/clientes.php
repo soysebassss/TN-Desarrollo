@@ -9,20 +9,18 @@
   <div class="col-sm-5 text-center"><br>
     <h3>Tabla Clientes</h3>
   </div>
-	<div class="col-sm-4"><br>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-6">
       <a href="<?=site_url('Administrador/papeleraClientes')?>">
       <button class="btn btn-outline-primary pull-left" style="cursor:pointer"><i class="fa fa-trash-o"></i> Papelera </button>
       </a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-6">
       <a href="<?=site_url('Administrador/agregarCliente')?>">
       <button class="btn btn-outline-primary pull-right" style="cursor:pointer"><i class="fa fa-plus"></i> Agregar Cliente/a </button>
       </a>
       </div>
-    </div>
-	</div>
+    </div><br>
 </div>
 
 <!--== Tabla Clientes ==-->
